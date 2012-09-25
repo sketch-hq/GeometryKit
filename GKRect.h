@@ -17,6 +17,7 @@
 - (id)initWithRect:(NSRect)aRect;
 
 - (void)normalise;
+- (void)scaleBy:(CGFloat)scale;
 
 #pragma mark - Basic Properties
 @property NSRect rect;

@@ -56,4 +56,11 @@
   self.height = ABS(self.height);
 }
 
+- (void)scaleBy:(CGFloat)scale {
+  self.x *= scale;
+  self.y *= scale;
+  self.width *= scale;
+  self.height *= scale;
+}
+
 @end
