@@ -16,6 +16,10 @@
 + (id)rectWithRect:(NSRect)aRect;
 - (id)initWithRect:(NSRect)aRect;
 
++ (id)rectWithUnionOfRects:(NSArray *)gkRects;
+- (void)unionWith:(GKRect *)rect;
+- (BOOL)intersectsWithRect:(GKRect *)otherRect;
+
 - (void)normalise;
 - (void)scaleBy:(CGFloat)scale;
 

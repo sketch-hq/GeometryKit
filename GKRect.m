@@ -19,6 +19,24 @@
   return self;
 }
 
++ (id)rectWithUnionOfRects:(NSArray *)gkRects {
+  NSRect result = [[gkRects firstObject] rect];
+
+  for (GKRect *rect in gkRects)
+    result = NSUnionRect(result, [rect rect]);
+
+  return [[self class] rectWithRect:result];
+}
+
+- (void)unionWith:(GKRect *)aRect {
+  self.rect = NSUnionRect(self.rect, aRect.rect);
+}
+
+- (BOOL)intersectsWithRect:(GKRect *)otherRect {
+  return NSIntersectsRect(self.rect, otherRect.rect);
+}
+
+
 @dynamic x, y, width, height;
 
 - (CGFloat)x { return rect.origin.x; }
