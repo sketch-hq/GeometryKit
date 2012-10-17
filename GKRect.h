@@ -25,5 +25,5 @@
 
 #pragma mark - Basic Properties
 @property NSRect rect;
-@property CGFloat x,y, width, height;
+@property CGFloat x,y, width, height, midX, midY;
 @end
