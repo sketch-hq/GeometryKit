@@ -8,6 +8,7 @@
 @interface GKRect (Basics)
 @property CGFloat minX, maxX, minY, maxY;
 @property (readonly) CGFloat midX, midY;
+@property (nonatomic) NSPoint mid;
 
 - (void)resizeMinXTo:(CGFloat)maxX;
 - (void)resizeMaxXTo:(CGFloat)maxX;

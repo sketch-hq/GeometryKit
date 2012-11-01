@@ -6,7 +6,7 @@
 #import "GKEdge.h"
 
 @implementation GKRect (Basics)
-@dynamic minX, midX, maxX, minY, midY, maxY;
+@dynamic minX, midX, maxX, minY, midY, maxY, mid;
 
 - (CGFloat)minX { return NSMinX(rect); }
 - (CGFloat)midX { return NSMidX(rect); }
@@ -21,6 +21,15 @@
 
 - (void)setMinY:(CGFloat)minY { self.y = minY; }
 - (void)setMaxY:(CGFloat)maxY { self.y = maxY - self.height; }
+
+- (void)setMid:(NSPoint)mid {
+  self.midX = mid.x;
+  self.midY = mid.y;
+}
+
+- (NSPoint)mid {
+  return NSMakePoint(self.midX, self.midY);
+}
 
 - (void)resizeMinXTo:(CGFloat)minX
 {
