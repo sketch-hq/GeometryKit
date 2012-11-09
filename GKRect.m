@@ -4,7 +4,6 @@
 #import "GKRect.h"
 
 @implementation GKRect
-@synthesize rect;
 @dynamic midX, midY;
 
 + (id)rectWithRect:(NSRect)aRect
@@ -16,7 +15,7 @@
 {
   self = [super init];
   if (self)
-    rect = aRect;
+    _rect = aRect;
   return self;
 }
 
@@ -37,18 +36,17 @@
   return NSIntersectsRect(self.rect, otherRect.rect);
 }
 
-
 @dynamic x, y, width, height;
 
-- (CGFloat)x { return rect.origin.x; }
-- (CGFloat)y { return rect.origin.y; }
-- (CGFloat)width  { return rect.size.width; }
-- (CGFloat)height { return rect.size.height; }
+- (CGFloat)x { return self.rect.origin.x; }
+- (CGFloat)y { return self.rect.origin.y; }
+- (CGFloat)width  { return self.rect.size.width; }
+- (CGFloat)height { return self.rect.size.height; }
 
-- (void)setX:(CGFloat)x { rect.origin.x = x; }
-- (void)setY:(CGFloat)y { rect.origin.y = y; }
-- (void)setWidth:(CGFloat)width   { rect.size.width = width; }
-- (void)setHeight:(CGFloat)height { rect.size.height = height; }
+- (void)setX:(CGFloat)x { _rect.origin.x = x; }
+- (void)setY:(CGFloat)y { _rect.origin.y = y; }
+- (void)setWidth:(CGFloat)width   { _rect.size.width = width; }
+- (void)setHeight:(CGFloat)height { _rect.size.height = height; }
 
 - (id)copyWithZone:(NSZone *)zone
 {
@@ -69,8 +67,8 @@
 }
 
 - (void)normalise {
-  self.x = NSMinX(rect);
-  self.y = NSMinY(rect);
+  self.x = NSMinX(self.rect);
+  self.y = NSMinY(self.rect);
   self.width = ABS(self.width);
   self.height = ABS(self.height);
 }
@@ -83,11 +81,11 @@
 }
 
 - (CGFloat )midX {
-  return NSMidX(rect);
+  return NSMidX(self.rect);
 }
 
 - (CGFloat)midY {
-  return NSMidY(rect);
+  return NSMidY(self.rect);
 }
 
 - (void)setMidX:(CGFloat)midX {
@@ -96,6 +94,26 @@
 
 - (void)setMidY:(CGFloat)midY {
   self.y = midY - self.height/2;
+}
+
+@dynamic origin, size;
+
+- (NSPoint)origin {
+  return NSMakePoint(self.x, self.y);
+}
+
+- (void)setOrigin:(NSPoint)origin {
+  self.x = origin.x;
+  self.y = origin.y;
+}
+
+- (NSSize)size {
+  return NSMakeSize(self.width, self.height);
+}
+
+- (void)setSize:(NSSize)size {
+  self.width = size.width;
+  self.height = size.height;
 }
 
 @end

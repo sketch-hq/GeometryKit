@@ -12,7 +12,7 @@
 
 - (BOOL)containsPoint:(GKPoint *)point
 {
-  return NSPointInRect(point.point, rect);
+  return NSPointInRect(point.point, self.rect);
 }
 
 - (BOOL)containsPoint:(GKPoint *)point withInsetMargin:(CGFloat)rectInset

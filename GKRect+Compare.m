@@ -22,13 +22,13 @@
 
 - (GKRect *)intersectWithRect:(GKRect *)otherRect
 {
-  rect = NSIntersectionRect(self.rect, otherRect.rect);
+  self.rect = NSIntersectionRect(self.rect, otherRect.rect);
   return self;
 }
 
 - (GKRect *)unionWithRect:(GKRect *)otherRect
 {
-  rect = NSUnionRect(self.rect, otherRect.rect);
+  self.rect = NSUnionRect(self.rect, otherRect.rect);
   return self;
 }
 

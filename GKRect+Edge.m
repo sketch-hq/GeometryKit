@@ -8,13 +8,13 @@
 @implementation GKRect (Basics)
 @dynamic minX, midX, maxX, minY, midY, maxY, mid;
 
-- (CGFloat)minX { return NSMinX(rect); }
-- (CGFloat)midX { return NSMidX(rect); }
-- (CGFloat)maxX { return NSMaxX(rect); }
+- (CGFloat)minX { return NSMinX(self.rect); }
+- (CGFloat)midX { return NSMidX(self.rect); }
+- (CGFloat)maxX { return NSMaxX(self.rect); }
 
-- (CGFloat)minY { return NSMinY(rect); }
-- (CGFloat)midY { return NSMidY(rect); }
-- (CGFloat)maxY { return NSMaxY(rect); }
+- (CGFloat)minY { return NSMinY(self.rect); }
+- (CGFloat)midY { return NSMidY(self.rect); }
+- (CGFloat)maxY { return NSMaxY(self.rect); }
 
 - (void)setMinX:(CGFloat)minX { self.x = minX; }
 - (void)setMaxX:(CGFloat)maxX { self.x = maxX - self.width; }

@@ -22,7 +22,7 @@
 
 - (GKRect *)insetXBy:(CGFloat)xInset yBy:(CGFloat)yInset
 {
-  rect = NSInsetRect(rect, xInset, yInset);
+  self.rect = NSInsetRect(self.rect, xInset, yInset);
   return self;
 }
 

@@ -8,9 +8,6 @@
 #endif
 
 @interface GKRect : NSObject <NSCopying>
-{
-  NSRect rect;
-}
 
 #pragma mark - Creating Rects
 + (id)rectWithRect:(NSRect)aRect;
@@ -24,6 +21,8 @@
 - (void)scaleBy:(CGFloat)scale;
 
 #pragma mark - Basic Properties
-@property NSRect rect;
-@property CGFloat x,y, width, height, midX, midY;
+@property (nonatomic) NSRect rect;
+@property (nonatomic) CGFloat x,y, width, height, midX, midY;
+@property (nonatomic) NSPoint origin;
+@property (nonatomic) NSSize size;
 @end

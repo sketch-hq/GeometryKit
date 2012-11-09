@@ -7,7 +7,7 @@
 
 - (GKRect *)relativeRectInsideRect:(GKRect *)outerRect
 {
-  NSRect r = rect;
+  NSRect r = self.rect;
   r.origin.x    -= outerRect.x;
   r.origin.y    -= outerRect.y;
   r.origin.x    /= outerRect.width;
@@ -19,7 +19,7 @@
 
 - (GKRect *)absoluteRectInsideRect:(GKRect *)outerRect
 {
-  NSRect r = rect;
+  NSRect r = self.rect;
   r.origin.x    *= outerRect.width;
   r.origin.y    *= outerRect.height;
   r.origin.x    += outerRect.x;
