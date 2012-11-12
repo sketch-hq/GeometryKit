@@ -61,4 +61,13 @@
   return self;
 }
 
++ (NSComparisonResult)compareRect:(GKRect *)rect1 andRect:(GKRect *)rect2 forAxis:(GKAxis *)axis {
+  CGFloat a = [rect1 minForAxis:axis];
+  CGFloat b = [rect2 minForAxis:axis];
+
+  if (a > b) return NSOrderedDescending;
+  if (a < b) return NSOrderedAscending;
+  else return NSOrderedSame;
+}
+
 @end

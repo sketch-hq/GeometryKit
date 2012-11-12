@@ -16,4 +16,6 @@
 - (GKRect *)setMax:(CGFloat)value forAxis:(GKAxis *)axis;
 - (GKRect *)setSize:(CGFloat)value forAxis:(GKAxis *)axis;
 - (GKRect *)setSize:(CGFloat)value forAxis:(GKAxis *)axis anchoredToPosition:(GKAxisPosition *)edge;
+
++ (NSComparisonResult)compareRect:(GKRect *)rect1 andRect:(GKRect *)rect2 forAxis:(GKAxis *)axis;
 @end
