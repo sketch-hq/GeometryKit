@@ -26,7 +26,13 @@
 #pragma mark -
 - (CGFloat)distanceToPoint:(GKPoint *)point;
 - (GKOffset *)offsetToPoint:(GKPoint *)point;
+
+#pragma mark - Snapping
 - (GKPoint *)snapToRect:(GKRect *)rect withMargin:(CGFloat)margin;
 - (GKPoint *)snapToPoint:(GKPoint *)point withMargin:(CGFloat)margin;
+- (GKPoint *)snapToLines:(NSArray *)lines withMargin:(CGFloat)margin;
+
+#pragma mark - Axis
 - (CGFloat)positionForAxis:(GKAxis *)axis;
+- (void)setPosition:(CGFloat)position forAxis:(GKAxis *)axis;
 @end

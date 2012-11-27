@@ -10,4 +10,6 @@
 
 + (GKLine *)lineOnAxis:(GKAxis *)axis position:(CGFloat)position;
 - (BOOL)snapToRect:(GKRect *)rect;
+
++ (NSArray *)sortLines:(NSArray *)lines byDistanceToValue:(CGFloat)value;
 @end

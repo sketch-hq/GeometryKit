@@ -36,5 +36,12 @@
     return NO;
 }
 
++ (NSArray *)sortLines:(NSArray *)lines byDistanceToValue:(CGFloat)value {
+  return [lines sortedArrayUsingComparator:^NSComparisonResult(GKLine *l1, GKLine *l2) {
+    return [[NSNumber numberWithInteger:(NSInteger) ABS(value - [l1 position])]
+            compare:[NSNumber numberWithInteger:(NSInteger) ABS(value - [l2 position])]];
+  }];
+}
+
 
 @end
