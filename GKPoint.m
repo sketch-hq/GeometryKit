@@ -74,11 +74,11 @@
 }
 
 - (GKPoint *)snapToLines:(NSArray *)lines withMargin:(CGFloat)margin {
-  GKAxis *axis = [(GKLine *)[lines firstObject] axis];
+  GKAxis *axis = [[(GKLine *)[lines firstObject] axis] flippedAxis];
+  
   NSArray *sortedLines = [GKLine sortLines:lines byDistanceToValue:[self positionForAxis:axis]];
   
   GKLine *line = [sortedLines firstObject];
-  
   if (ABS([self positionForAxis:axis] - line.position) < margin)
     [self setPosition:line.position forAxis:axis];
   
