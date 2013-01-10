@@ -80,22 +80,6 @@
   self.height *= scale;
 }
 
-- (CGFloat )midX {
-  return NSMidX(self.rect);
-}
-
-- (CGFloat)midY {
-  return NSMidY(self.rect);
-}
-
-- (void)setMidX:(CGFloat)midX {
-  self.x = midX - self.width/2;
-}
-
-- (void)setMidY:(CGFloat)midY {
-  self.y = midY - self.height/2;
-}
-
 @dynamic origin, size;
 
 - (NSPoint)origin {
