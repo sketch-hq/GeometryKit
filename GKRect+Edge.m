@@ -21,7 +21,7 @@
 - (void)setMaxX:(CGFloat)maxX { self.x = maxX - self.width; }
 
 - (void)setMinY:(CGFloat)minY { self.y = minY; }
-- (void)setMidY:(CGFloat)midY { self.y = midY - self.width/2; }
+- (void)setMidY:(CGFloat)midY { self.y = midY - self.height/2; }
 - (void)setMaxY:(CGFloat)maxY { self.y = maxY - self.height; }
 
 - (void)setMid:(NSPoint)mid {
