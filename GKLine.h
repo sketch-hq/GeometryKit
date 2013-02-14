@@ -9,7 +9,8 @@
 @property (nonatomic) CGFloat position;
 
 + (GKLine *)lineOnAxis:(GKAxis *)axis position:(CGFloat)position;
-- (BOOL)snapToRect:(GKRect *)rect;
+
+- (BOOL)snapToRect:(GKRect *)rect margin:(CGFloat)margin;
 
 + (NSArray *)sortLines:(NSArray *)lines byDistanceToValue:(CGFloat)value;
 @end

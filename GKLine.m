@@ -15,21 +15,20 @@
   return [line autorelease];
 }
 
-- (BOOL)snapToRect:(GKRect *)rect {
+- (BOOL)snapToRect:(GKRect *)rect margin:(CGFloat)margin {
   GKAxis *axis = [self.axis flippedAxis];
   CGFloat min = [rect minForAxis:axis];
   CGFloat max = [rect maxForAxis:axis];
-
-  if ([self snapToPosition:min])
+  if ([self snapToPosition:min margin:margin])
     return YES;
-  else if ([self snapToPosition:max])
+  else if ([self snapToPosition:max margin:margin])
     return YES;
   else
     return NO;
 }
 
-- (BOOL)snapToPosition:(CGFloat)pos {
-  if (ABS(pos - self.position) < 5) {
+- (BOOL)snapToPosition:(CGFloat)pos margin:(CGFloat)margin {
+  if (ABS(pos - self.position) < margin) {
     self.position = pos;
     return YES;
   } else
