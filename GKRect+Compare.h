@@ -9,6 +9,6 @@
 
 - (BOOL)intersectsRect:(GKRect *)otherRect;
 
-- (GKRect *)intersectWithRect:(GKRect *)otherRect;
+- (void)intersectWithRect:(GKRect *)otherRect;
 - (GKRect *)unionWithRect:(GKRect *)otherRect;
 @end

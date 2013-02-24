@@ -20,10 +20,9 @@
   return NSIntersectsRect(self.rect, otherRect.rect);
 }
 
-- (GKRect *)intersectWithRect:(GKRect *)otherRect
+- (void)intersectWithRect:(GKRect *)otherRect
 {
   self.rect = NSIntersectionRect(self.rect, otherRect.rect);
-  return self;
 }
 
 - (GKRect *)unionWithRect:(GKRect *)otherRect
