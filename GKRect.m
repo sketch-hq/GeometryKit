@@ -20,12 +20,25 @@
 }
 
 + (id)rectWithUnionOfRects:(NSArray *)gkRects {
-  NSRect result = [[gkRects firstObject] rect];
+  gkRects = [gkRects filteredArrayUsingBlock:^BOOL(id object) {
+    return [object respondsToSelector:@selector(rect)] || [object respondsToSelector:@selector(rectValue)];
+  }];
+
+  NSRect result = [self NSRectValueFromObject:[gkRects firstObject]];
 
   for (GKRect *rect in gkRects)
-    result = NSUnionRect(result, [rect rect]);
+    result = NSUnionRect(result, [self NSRectValueFromObject:rect]);
 
   return [[self class] rectWithRect:result];
+}
+
++ (NSRect)NSRectValueFromObject:(id)object {
+  if ([object respondsToSelector:@selector(rect)])
+    return [object rect];
+  else if ([object respondsToSelector:@selector(rectValue)])
+    return [object rectValue];
+  else
+    return NSZeroRect;
 }
 
 - (void)unionWith:(GKRect *)aRect {
