@@ -1,0 +1,2 @@
+#define EC_DEBUG 1
+#import "GeometryKitShared.pch"
