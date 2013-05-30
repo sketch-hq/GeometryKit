@@ -14,6 +14,7 @@
 - (id)initWithRect:(NSRect)aRect;
 
 + (id)rectWithUnionOfRects:(NSArray *)gkRects;
++ (id)safeRectWithUnionOfRects:(NSArray *)gkRects;
 - (void)unionWith:(GKRect *)rect;
 - (BOOL)intersectsWithRect:(GKRect *)otherRect;
 
