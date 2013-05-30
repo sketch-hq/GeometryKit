@@ -23,7 +23,10 @@
   gkRects = [gkRects filteredArrayUsingBlock:^BOOL(id object) {
     return [object respondsToSelector:@selector(rect)] || [object respondsToSelector:@selector(rectValue)];
   }];
+  return [self safeRectWithUnionOfRects:gkRects];
+}
 
++ (id)safeRectWithUnionOfRects:(NSArray *)gkRects {
   NSRect result = [self NSRectValueFromObject:[gkRects firstObject]];
 
   for (GKRect *rect in gkRects)
