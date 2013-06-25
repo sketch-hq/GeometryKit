@@ -8,7 +8,7 @@
 
 + (id)edgeWithType:(GKEdgeType)aType
 {
-  return [[[self alloc] initWithType:aType] autorelease];
+  return [[self alloc] initWithType:aType];
 }
 
 - (void)flip

@@ -14,7 +14,7 @@
 
 + (id)positionWithType:(GKAxisPositionType)aType
 {
-  return [[[self alloc] initWithType:aType] autorelease];
+  return [[self alloc] initWithType:aType];
 }
 
 @end

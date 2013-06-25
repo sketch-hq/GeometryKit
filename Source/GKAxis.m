@@ -10,7 +10,7 @@
 
 + (id)horizontalAxis { return [self axisWithType:GKAxisHorizontal]; }
 + (id)verticalAxis   { return [self axisWithType:GKAxisVertical]; }
-+ (id)axisWithType:(GKAxisType)aType { return [[[self alloc] initWithType:aType] autorelease]; }
++ (id)axisWithType:(GKAxisType)aType { return [[self alloc] initWithType:aType]; }
 
 #pragma mark - Querying
 
@@ -33,7 +33,7 @@
 
 - (id)flippedAxis
 {
-  GKAxis *axis = [[self copy] autorelease];
+  GKAxis *axis = [self copy];
   [axis flip];
   return axis;
 }

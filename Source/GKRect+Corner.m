@@ -125,7 +125,7 @@
 
 - (GKCorner *)closestCornerForPoint:(GKPoint *)point withMargin:(CGFloat)margin
 {
-  __block id blockself = self;
+  __unsafe_unretained id blockself = self;
   return [GKCorner firstCornerSatisfyingPredicate:^BOOL(GKCorner *corner) {
     return [[blockself pointForCorner:corner] distanceToPoint:point] < margin;
   }];
@@ -133,7 +133,7 @@
 
 - (GKCorner *)closestCornerForPoint:(GKPoint *)point withMargin:(CGFloat)margin satisfyingMask:(NSUInteger)cornerMask
 {
-  __block id blockSelf = self;
+  __unsafe_unretained id blockSelf = self;
   return [GKCorner firstCornerSatisfyingPredicate:^BOOL(GKCorner *corner) {
     return [corner satisfiesMask:cornerMask] && [[blockSelf pointForCorner:corner] distanceToPoint:point] < margin;
   }];
@@ -142,7 +142,7 @@
 
 - (GKCorner *)closestCornerForPoint:(GKPoint *)point marginCallback:(BCCornerOffsetCallbackBlock)marginBlock
 {
-  __block id blockSelf = self;
+  __unsafe_unretained id blockSelf = self;
   return [GKCorner firstCornerSatisfyingPredicate:^BOOL(GKCorner *corner) {
     GKOffset *tolerance = marginBlock(corner);
     return [[[blockSelf pointForCorner:corner] offsetToPoint:point] isSmallerThanOffset:tolerance];

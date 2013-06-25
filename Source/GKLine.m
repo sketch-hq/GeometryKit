@@ -12,7 +12,7 @@
   GKLine *line = [[GKLine alloc] init];
   line.axis = axis;
   line.position = position;
-  return [line autorelease];
+  return line;
 }
 
 - (BOOL)snapToRect:(GKRect *)rect margin:(CGFloat)margin {

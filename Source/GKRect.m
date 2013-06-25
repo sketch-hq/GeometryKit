@@ -8,7 +8,7 @@
 
 + (id)rectWithRect:(NSRect)aRect
 {
-  return [[[self alloc] initWithRect:aRect] autorelease];
+  return [[self alloc] initWithRect:aRect];
 }
 
 - (id)initWithRect:(NSRect)aRect

@@ -17,7 +17,7 @@
 
 - (BOOL)containsPoint:(GKPoint *)point withInsetMargin:(CGFloat)rectInset
 {
-  return [[[[self copy] autorelease] insetBy:rectInset] containsPoint:point];
+  return [[[self copy] insetBy:rectInset] containsPoint:point];
 }
 
 - (GKOffset *)innerOffsetOfPoint:(GKPoint *)point

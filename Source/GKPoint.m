@@ -12,7 +12,7 @@
 @synthesize point;
 
 + (id)pointWithPoint:(NSPoint)aPoint {
-  return [[[self alloc] initWithPoint:aPoint] autorelease];
+  return [[self alloc] initWithPoint:aPoint];
 }
 
 + (id)pointWithX:(CGFloat)x y:(CGFloat)y {
@@ -58,7 +58,7 @@
 #pragma mark - Snapping
 
 - (GKPoint *)snapToRect:(GKRect *)rect withMargin:(CGFloat)margin {
-  __block id blockself = self;
+  __unsafe_unretained id blockself = self;
   [GKCorner enumerateCornersInBlock:^(GKCorner *corner) {
     [blockself snapToPoint:[rect pointForCorner:corner] withMargin:margin];
   }];

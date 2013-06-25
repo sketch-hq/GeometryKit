@@ -57,7 +57,6 @@
     [self setMid:[rectCopy midForAxis:axis] forAxis:axis];
   else if (edge.type == GKAxisPositionMax)
     [self setMax:[rectCopy maxForAxis:axis] forAxis:axis];
-  [rectCopy release];
   return self;
 }
 

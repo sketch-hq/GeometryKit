@@ -12,7 +12,7 @@
 
 + (id)cornerWithType:(GKCornerType)corner
 {
-  return [[[self alloc] initWithType:corner] autorelease];
+  return [[self alloc] initWithType:corner];
 }
 
 - (GKCorner *)flip
@@ -27,7 +27,7 @@
 
 - (GKCorner *)cornerByFlipping
 {
-  return [(GKCorner *)[[self copy] autorelease] flip];
+  return [(GKCorner *)[self copy] flip];
 }
 
 - (GKCorner *)cornerByRotating45DegreesCounterClockwise
@@ -48,7 +48,7 @@
 - (GKCorner *)cornerByRotatingByDegrees:(NSInteger)degrees
 {
   if (degrees < 45.0/2 && degrees > -45.0/2)
-    return [[self copy] autorelease];
+    return [self copy];
   else if (degrees < 0)
     return [[self cornerByRotating45DegreesCounterClockwise] cornerByRotatingByDegrees:degrees+45];
   else

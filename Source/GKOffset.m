@@ -15,7 +15,7 @@
 
 + (id)offsetWithSize:(NSSize)size
 {
-  return [[[self alloc] initWithSize:size] autorelease];
+  return [[self alloc] initWithSize:size];
 }
 
 + (id)offsetWithPoint:(NSPoint)point
@@ -43,7 +43,7 @@
 
 - (GKOffset *)invert
 {
-  return [[[[self class] alloc] initWithSize:NSMakeSize(-offset.width, -offset.height)] autorelease];
+  return [[[self class] alloc] initWithSize:NSMakeSize(-offset.width, -offset.height)];
 }
 
 - (CGFloat)xOffset { return offset.width;  }
