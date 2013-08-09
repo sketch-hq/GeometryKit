@@ -58,7 +58,7 @@
 #pragma mark - Snapping
 
 - (GKPoint *)snapToRect:(GKRect *)rect withMargin:(CGFloat)margin {
-  __unsafe_unretained id blockself = self;
+  __weak id blockself = self;
   [GKCorner enumerateCornersInBlock:^(GKCorner *corner) {
     [blockself snapToPoint:[rect pointForCorner:corner] withMargin:margin];
   }];
