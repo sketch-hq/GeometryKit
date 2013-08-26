@@ -15,7 +15,7 @@ enum {
 
 static GKAxisType GKAxisFlip(GKAxisType axis)
 {
-  return !axis;
+  return (GKAxisType)!axis;
 }
 
 @class GKRect;
