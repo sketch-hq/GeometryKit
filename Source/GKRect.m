@@ -44,6 +44,15 @@
     return NSZeroRect;
 }
 
++ (id)rectWithUnionOfGKRects:(NSArray *)gkRects {
+  NSRect result = [self NSRectValueFromObject:[gkRects firstObject]];
+  
+  for (GKRect *rect in gkRects)
+    result = NSUnionRect(result, [rect rect]);
+  
+  return [[self class] rectWithRect:result];
+}
+
 - (void)unionWith:(GKRect *)aRect {
   self.rect = NSUnionRect(self.rect, aRect.rect);
 }

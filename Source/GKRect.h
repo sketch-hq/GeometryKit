@@ -15,6 +15,7 @@
 
 + (id)rectWithUnionOfRects:(NSArray *)gkRects;
 + (id)safeRectWithUnionOfRects:(NSArray *)gkRects;
++ (id)rectWithUnionOfGKRects:(NSArray *)gkRects;
 - (void)unionWith:(GKRect *)rect;
 - (BOOL)intersectsWithRect:(GKRect *)otherRect;
 
