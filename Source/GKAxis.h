@@ -13,7 +13,7 @@ enum {
   GKAxisVerticalMask   = 1 << GKAxisVertical
 };
 
-static GKAxisType GKAxisFlip(GKAxisType axis)
+static inline GKAxisType GKAxisFlip(GKAxisType axis)
 {
   return (GKAxisType)!axis;
 }
