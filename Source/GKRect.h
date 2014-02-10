@@ -10,12 +10,12 @@
 @interface GKRect : NSObject <NSCopying>
 
 #pragma mark - Creating Rects
-+ (id)rectWithRect:(NSRect)aRect;
++ (instancetype)rectWithRect:(NSRect)aRect;
 - (id)initWithRect:(NSRect)aRect;
 
-+ (id)rectWithUnionOfRects:(NSArray *)gkRects;
-+ (id)safeRectWithUnionOfRects:(NSArray *)gkRects;
-+ (id)rectWithUnionOfGKRects:(NSArray *)gkRects;
++ (instancetype)rectWithUnionOfRects:(NSArray *)gkRects;
++ (instancetype)safeRectWithUnionOfRects:(NSArray *)gkRects;
++ (instancetype)rectWithUnionOfGKRects:(NSArray *)gkRects;
 - (void)unionWith:(GKRect *)rect;
 - (BOOL)intersectsWithRect:(GKRect *)otherRect;
 

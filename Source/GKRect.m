@@ -6,7 +6,7 @@
 @implementation GKRect
 @dynamic midX, midY;
 
-+ (id)rectWithRect:(NSRect)aRect
++ (instancetype)rectWithRect:(NSRect)aRect
 {
   return [[self alloc] initWithRect:aRect];
 }
@@ -19,14 +19,14 @@
   return self;
 }
 
-+ (id)rectWithUnionOfRects:(NSArray *)gkRects {
++ (instancetype)rectWithUnionOfRects:(NSArray *)gkRects {
   gkRects = [gkRects filteredArrayUsingBlock:^BOOL(id object) {
     return [object respondsToSelector:@selector(rect)] || [object respondsToSelector:@selector(rectValue)];
   }];
   return [self safeRectWithUnionOfRects:gkRects];
 }
 
-+ (id)safeRectWithUnionOfRects:(NSArray *)gkRects {
++ (instancetype)safeRectWithUnionOfRects:(NSArray *)gkRects {
   NSRect result = [self NSRectValueFromObject:[gkRects firstObject]];
 
   for (GKRect *rect in gkRects)
@@ -44,7 +44,7 @@
     return NSZeroRect;
 }
 
-+ (id)rectWithUnionOfGKRects:(NSArray *)gkRects {
++ (instancetype)rectWithUnionOfGKRects:(NSArray *)gkRects {
   NSRect result = [self NSRectValueFromObject:[gkRects firstObject]];
   
   for (GKRect *rect in gkRects)
