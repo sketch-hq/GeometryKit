@@ -13,9 +13,20 @@ enum {
   GKAxisVerticalMask   = 1 << GKAxisVertical
 };
 
-static inline GKAxisType GKAxisFlip(GKAxisType axis)
-{
+static inline GKAxisType GKAxisFlip(GKAxisType axis) {
   return (GKAxisType)!axis;
+}
+
+static inline CGFloat GKRectMinForAxis(NSRect rect, GKAxisType axis) {
+  return axis == GKAxisHorizontal ? rect.origin.x : rect.origin.y;
+}
+
+static inline CGFloat GKRectMaxForAxis(NSRect rect, GKAxisType axis) {
+  return axis == GKAxisHorizontal ? NSMaxX(rect) : NSMaxY(rect);
+}
+
+static inline CGFloat GKRectSizeForAxis(NSRect rect, GKAxisType axis) {
+  return axis == GKAxisHorizontal ? rect.size.width : rect.size.height;
 }
 
 @class GKRect;

@@ -49,17 +49,6 @@
   return self;
 }
 
-- (GKRect *)setSize:(CGFloat)value forAxis:(GKAxis *)axis anchoredToPosition:(GKAxisPosition *)edge
-{
-  GKRect *rectCopy = [self copy];
-  [self setSize:value forAxis:axis];
-  if (edge.type == GKAxisPositionMid)
-    [self setMid:[rectCopy midForAxis:axis] forAxis:axis];
-  else if (edge.type == GKAxisPositionMax)
-    [self setMax:[rectCopy maxForAxis:axis] forAxis:axis];
-  return self;
-}
-
 + (NSComparisonResult)compareRect:(GKRect *)rect1 andRect:(GKRect *)rect2 forAxis:(GKAxis *)axis {
   CGFloat a = [rect1 minForAxis:axis];
   CGFloat b = [rect2 minForAxis:axis];
