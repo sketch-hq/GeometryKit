@@ -29,6 +29,13 @@ static inline CGFloat GKRectSizeForAxis(NSRect rect, GKAxisType axis) {
   return axis == GKAxisHorizontal ? rect.size.width : rect.size.height;
 }
 
+static inline CGFloat GKPointPositionForAxis(NSPoint point, GKAxisType axis) {
+  if (axis == GKAxisHorizontal)
+    return point.x;
+  else
+    return point.y;
+}
+
 @class GKRect;
 
 @interface GKAxis : GKObjectEnum
