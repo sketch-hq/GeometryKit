@@ -10,9 +10,6 @@
 @class GKPoint;
 
 @interface GKOffset : NSObject <NSCopying>
-{
-  NSSize offset;
-}
 
 #pragma maro - Creating Offsets
 + (id)offsetWithValue:(CGFloat)value;
@@ -22,9 +19,9 @@
 - (id)initWithSize:(NSSize)size;
 
 #pragma mark - Properties
-@property NSSize offset;
-@property CGFloat xOffset, yOffset;
-@property NSPoint point;
+@property (assign, nonatomic) NSSize offset;
+@property (assign, nonatomic) CGFloat xOffset, yOffset;
+@property (assign, nonatomic) NSPoint point;
 
 #pragma mark -
 - (GKOffset *)invert;

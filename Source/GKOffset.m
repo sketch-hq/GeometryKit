@@ -5,8 +5,6 @@
 #import "GKPoint.h"
 
 @implementation GKOffset
-@synthesize offset;
-@dynamic xOffset, yOffset, point;
 
 + (id)offsetWithValue:(CGFloat)value
 {
@@ -32,25 +30,25 @@
 {
   self = [super init];
   if (self)
-    offset = size;
+    _offset = size;
   return self;
 }
 
 - (id)copyWithZone:(NSZone *)zone
 {
-  return [[[self class] alloc] initWithSize:offset];
+  return [[[self class] alloc] initWithSize:_offset];
 }
 
 - (GKOffset *)invert
 {
-  return [[[self class] alloc] initWithSize:NSMakeSize(-offset.width, -offset.height)];
+  return [[[self class] alloc] initWithSize:NSMakeSize(-_offset.width, -_offset.height)];
 }
 
-- (CGFloat)xOffset { return offset.width;  }
-- (CGFloat)yOffset { return offset.height; }
-- (void)setXOffset:(CGFloat)xOffset { offset.width  = xOffset; }
-- (void)setYOffset:(CGFloat)yOffset { offset.height = yOffset; }
-- (NSPoint)point { return NSMakePoint(offset.width, offset.height); };
+- (CGFloat)xOffset { return _offset.width;  }
+- (CGFloat)yOffset { return _offset.height; }
+- (void)setXOffset:(CGFloat)xOffset { _offset.width  = xOffset; }
+- (void)setYOffset:(CGFloat)yOffset { _offset.height = yOffset; }
+- (NSPoint)point { return NSMakePoint(_offset.width, _offset.height); };
 
 - (BOOL)isSmallerThanOffset:(GKOffset *)otherOffset
 {
@@ -59,7 +57,7 @@
 
 - (NSString *)description
 {
-  return [NSString stringWithFormat:@"%@ (%i,%i)", [super description], (int)offset.width, (int)offset.height];
+  return [NSString stringWithFormat:@"%@ (%i,%i)", [super description], (int)_offset.width, (int)_offset.height];
 }
 
 @end

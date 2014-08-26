@@ -10,9 +10,6 @@
 @class GKOffset, GKRect, GKAxis;
 
 @interface GKPoint : NSObject <NSCopying>
-{
-  NSPoint point;
-}
 
 #pragma mark - Creating Points
 + (id)pointWithPoint:(NSPoint)aPoint;
@@ -20,8 +17,8 @@
 - (id)initWithPoint:(NSPoint)aPoint;
 
 #pragma mark - Basic Properties
-@property NSPoint point;
-@property CGFloat x, y;
+@property (assign, nonatomic) NSPoint point;
+@property (assign, nonatomic) CGFloat x, y;
 
 #pragma mark -
 - (CGFloat)distanceToPoint:(GKPoint *)point;

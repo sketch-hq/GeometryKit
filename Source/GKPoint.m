@@ -9,7 +9,6 @@
 #import "GKLine.h"
 
 @implementation GKPoint
-@synthesize point;
 
 + (id)pointWithPoint:(NSPoint)aPoint {
   return [[self alloc] initWithPoint:aPoint];
@@ -22,29 +21,29 @@
 - (id)initWithPoint:(NSPoint)aPoint {
   self = [super init];
   if (self)
-    point = aPoint;
+    _point = aPoint;
   return self;
 }
 
 @dynamic x, y;
 
-- (CGFloat)x { return point.x; }
-- (CGFloat)y { return point.y; }
-- (void)setX:(CGFloat)x { point.x = x; }
-- (void)setY:(CGFloat)y { point.y = y; }
+- (CGFloat)x { return _point.x; }
+- (CGFloat)y { return _point.y; }
+- (void)setX:(CGFloat)x { _point.x = x; }
+- (void)setY:(CGFloat)y { _point.y = y; }
 
 #pragma mark - Default Stuff
 
 - (id)copyWithZone:(NSZone *)zone {
-  return [[[self class] alloc] initWithPoint:point];
+  return [[[self class] alloc] initWithPoint:_point];
 }
 
 - (BOOL)isEqual:(GKPoint *)object {
-  return NSEqualPoints(point, object.point);
+  return NSEqualPoints(_point, object.point);
 }
 
 - (NSUInteger)hash {
-  return [super hash] + [@(point.x) hash] + [@(point.y) hash];
+  return [super hash] + [@(_point.x) hash] + [@(_point.y) hash];
 }
 
 - (CGFloat)distanceToPoint:(GKPoint *)otherPoint {
@@ -100,7 +99,7 @@
 }
 
 - (NSString *)description {
-  return NSStringFromPoint(point);
+  return NSStringFromPoint(_point);
 }
 
 @end

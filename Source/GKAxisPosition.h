@@ -10,7 +10,7 @@ typedef enum GKAxisPositionType : NSInteger {
 } GKAxisPositionType;
 
 @interface GKAxisPosition : GKObjectEnum
-@property GKAxisPositionType type;
+@property (assign, nonatomic) GKAxisPositionType type;
 
 #pragma mark - Creating Positions
 + (id)positionMin;

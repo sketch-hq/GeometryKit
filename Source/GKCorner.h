@@ -41,7 +41,7 @@ typedef void(^GKCornerEnumerator)(GKCorner *corner);
 typedef BOOL(^GKCornerEnumeratorPredicate)(GKCorner *corner);
 
 @interface GKCorner : GKObjectEnum
-@property GKCornerType type;
+@property (assign, nonatomic) GKCornerType type;
 #pragma mark - Creating Corners
 + (id)cornerWithType:(GKCornerType)corner;
 

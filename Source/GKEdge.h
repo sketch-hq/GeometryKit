@@ -13,7 +13,7 @@ typedef enum GKEdgeType : NSUInteger {
 } GKEdgeType;
 
 @interface GKEdge : GKObjectEnum
-@property GKEdgeType type;
+@property (assign, nonatomic) GKEdgeType type;
 
 #pragma mark - Creating Edges
 + (id)edgeWithType:(GKEdgeType)type;

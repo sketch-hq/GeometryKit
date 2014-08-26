@@ -39,7 +39,7 @@ static inline CGFloat GKPointPositionForAxis(NSPoint point, GKAxisType axis) {
 @class GKRect;
 
 @interface GKAxis : GKObjectEnum
-@property GKAxisType type;
+@property (assign, nonatomic) GKAxisType type;
 
 #pragma mark - Creating Edges
 + (id)horizontalAxis;
