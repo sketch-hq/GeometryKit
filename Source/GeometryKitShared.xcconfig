@@ -1,5 +1,4 @@
 #include "../BCFoundation/Configs/BCStaticLibrary.xcconfig"
 
 PRODUCT_NAME=$(TARGET_NAME)
-
-GCC_PREFIX_HEADER = Source/DrawKit$(CONFIGURATION).pch
+GCC_PREFIX_HEADER = Source/GeometryKit$(CONFIGURATION).pch

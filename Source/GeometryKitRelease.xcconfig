@@ -1,2 +1,2 @@
 #include "../BCFoundation/Configs/BCRelease.xcconfig"
-#include "DrawKitShared.xcconfig"
+#include "GeometryKitShared.xcconfig"
