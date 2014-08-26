@@ -44,6 +44,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		222D37C019ACE3240079F8BE /* GeometryKitDebug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = GeometryKitDebug.xcconfig; sourceTree = "<group>"; };
+		222D37C119ACE3240079F8BE /* GeometryKitRelease.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = GeometryKitRelease.xcconfig; sourceTree = "<group>"; };
+		222D37C219ACE3240079F8BE /* GeometryKitShared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = GeometryKitShared.xcconfig; sourceTree = "<group>"; };
 		228CF22717562C58003E1D25 /* GeometryKitDebug.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeometryKitDebug.pch; sourceTree = "<group>"; };
 		228CF22817562C58003E1D25 /* GeometryKitRelease.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeometryKitRelease.pch; sourceTree = "<group>"; };
 		228CF22917562C58003E1D25 /* GeometryKitShared.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeometryKitShared.pch; sourceTree = "<group>"; };
@@ -85,7 +88,6 @@
 		F5C25A8F16A46702002F7A70 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		F5C25A9016A46702002F7A70 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		F5C25A9116A46702002F7A70 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		F5C25A9416A46702002F7A70 /* ArchivingKit-Prefix.pch */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.c.h; path = "ArchivingKit-Prefix.pch"; sourceTree = "<group>"; tabWidth = 2; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		222D37C319ACE3280079F8BE /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				222D37C019ACE3240079F8BE /* GeometryKitDebug.xcconfig */,
+				222D37C119ACE3240079F8BE /* GeometryKitRelease.xcconfig */,
+				222D37C219ACE3240079F8BE /* GeometryKitShared.xcconfig */,
+			);
+			name = Configuration;
+			sourceTree = "<group>";
+		};
+		222D37C419ACE3310079F8BE /* Prefixes */ = {
+			isa = PBXGroup;
+			children = (
+				228CF22717562C58003E1D25 /* GeometryKitDebug.pch */,
+				228CF22817562C58003E1D25 /* GeometryKitRelease.pch */,
+				228CF22917562C58003E1D25 /* GeometryKitShared.pch */,
+			);
+			name = Prefixes;
+			sourceTree = "<group>";
+		};
 		F5C25A7E16A46702002F7A70 = {
 			isa = PBXGroup;
 			children = (
@@ -139,9 +161,6 @@
 		F5C25A9216A46702002F7A70 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				228CF22717562C58003E1D25 /* GeometryKitDebug.pch */,
-				228CF22817562C58003E1D25 /* GeometryKitRelease.pch */,
-				228CF22917562C58003E1D25 /* GeometryKitShared.pch */,
 				22FCC8A61756115300CAEA85 /* GeometryKit.h */,
 				22FCC8A71756115300CAEA85 /* GKAxis.h */,
 				22FCC8A81756115300CAEA85 /* GKAxis.m */,
@@ -183,7 +202,8 @@
 		F5C25A9316A46702002F7A70 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				F5C25A9416A46702002F7A70 /* ArchivingKit-Prefix.pch */,
+				222D37C319ACE3280079F8BE /* Configuration */,
+				222D37C419ACE3310079F8BE /* Prefixes */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -290,6 +310,7 @@
 /* Begin XCBuildConfiguration section */
 		F5C25A9816A46702002F7A70 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 222D37C019ACE3240079F8BE /* GeometryKitDebug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -319,6 +340,7 @@
 		};
 		F5C25A9916A46702002F7A70 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 222D37C119ACE3240079F8BE /* GeometryKitRelease.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";

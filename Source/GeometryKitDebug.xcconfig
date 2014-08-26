@@ -1,0 +1,3 @@
+#include "../BCFoundation/Configs/BCDebug.xcconfig"
+
+#include "DrawKitShared.xcconfig"
