@@ -36,6 +36,15 @@ static inline CGFloat GKPointPositionForAxis(NSPoint point, GKAxisType axis) {
     return point.y;
 }
 
+static inline NSPoint GKPointWithPositionForAxis(NSPoint point, GKAxisType axis, CGFloat value) {
+  if (axis == GKAxisHorizontal)
+    point.x = value;
+  else
+    point.y = value;
+
+  return point;
+}
+
 @class GKRect;
 
 @interface GKAxis : GKObjectEnum
