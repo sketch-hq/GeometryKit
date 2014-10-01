@@ -3,7 +3,6 @@
 
 #import "GKRect+Corner.h"
 #import "GKRect+Edge.h"
-#import "GKRect+Compare.h"
 #import "GKOffset.h"
 #import "GKPoint.h"
 
@@ -11,28 +10,7 @@
 
 - (GKPoint *)pointForCorner:(GKCorner *)corner
 {
-  switch (corner.type) {
-    case GKCornerTopLeft:
-      return [GKPoint pointWithX:self.minX y:self.minY];
-    case GKCornerTopRight:
-      return [GKPoint pointWithX:self.maxX y:self.minY];
-    case GKCornerBottomLeft:
-      return [GKPoint pointWithX:self.minX y:self.maxY];
-    case GKCornerBottomRight:
-      return [GKPoint pointWithX:self.maxX y:self.maxY];
-    case GKCornerMidTop:
-      return [GKPoint pointWithX:self.midX y:self.minY];
-    case GKCornerMidLeft:
-      return [GKPoint pointWithX:self.minX y:self.midY];
-    case GKCornerMidRight:
-      return [GKPoint pointWithX:self.maxX y:self.midY];
-    case GKCornerMidBottom:
-      return [GKPoint pointWithX:self.midX y:self.maxY];
-    case GKCornerMid:
-      return [GKPoint pointWithX:self.midX y:self.midY];
-    default:
-      return [GKPoint pointWithPoint:NSZeroPoint];
-  }
+  return [GKPoint pointWithPoint:GKRectPointForCorner(self.rect, corner.type)];
 }
 
 - (NSArray *)pointsForCorners:(NSArray *)corners

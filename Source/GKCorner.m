@@ -144,8 +144,9 @@
 
 + (void)enumerateCornersInBlock:(GKCornerEnumerator)enumeratorBlock
 {
-  for (GKCornerType corner = 0; corner<GKCornerCount; corner++)
+  GKCornerEnumerate(^(GKCornerType corner) {
     enumeratorBlock([GKCorner cornerWithType:corner]);
+  });
 }
 
 + (GKCorner *)firstCornerSatisfyingPredicate:(GKCornerEnumeratorPredicate)enumeratorBlock

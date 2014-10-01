@@ -7,6 +7,18 @@
 #import <CoreGraphics/CoreGraphics.h>
 #endif
 
+static BOOL GKPointCanSnapToPoint(NSPoint point, NSPoint other, CGFloat margin) {
+  return ABS(point.x - other.x) < margin || ABS(point.y - other.y) < margin;
+}
+
+static NSPoint GKPointSnapToPoint(NSPoint point, NSPoint other, CGFloat margin) {
+  if (ABS(point.x - other.x) < margin)
+    point.x = other.x;
+  if (ABS(point.y - other.y) < margin)
+    point.y = other.y;
+  return point;
+}
+
 @class GKOffset, GKRect, GKAxis;
 
 @interface GKPoint : NSObject <NSCopying>
