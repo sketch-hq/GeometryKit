@@ -8,7 +8,7 @@
 
 typedef GKOffset *(^BCCornerOffsetCallbackBlock)(GKCorner *corner);
 
-static NSPoint GKRectPointForCorner(NSRect rect, GKCornerType corner) {
+static inline NSPoint GKRectPointForCorner(NSRect rect, GKCornerType corner) {
   switch (corner) {
     case GKCornerTopLeft:
       return NSMakePoint(NSMinX(rect), NSMinY(rect));

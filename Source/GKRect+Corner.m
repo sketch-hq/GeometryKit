@@ -3,6 +3,7 @@
 
 #import "GKRect+Corner.h"
 #import "GKRect+Edge.h"
+#import "GKRect+Compare.h"
 #import "GKOffset.h"
 #import "GKPoint.h"
 

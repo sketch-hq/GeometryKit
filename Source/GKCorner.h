@@ -37,7 +37,7 @@ enum {
 
 typedef void(^GKCornerEnumeratorBlock)(GKCornerType corner);
 
-static void GKCornerEnumerate(GKCornerEnumeratorBlock block) {
+static inline void GKCornerEnumerate(GKCornerEnumeratorBlock block) {
   for (NSInteger corner = 0; corner<GKCornerCount; corner++)
     block((GKCornerType)corner);
 }
