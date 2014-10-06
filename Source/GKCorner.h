@@ -35,6 +35,13 @@ enum {
 #define GKCornerMaskCorner  (GKCornerTopLeftMask | GKCornerTopRightMask | GKCornerBottomLeftMask | GKCornerBottomRightMask)
 #define GKCornerMaskMid      (GKCornerMidTopMask | GKCornerMidLeftMask | GKCornerMidRightMask | GKCornerMidBottomMask)
 
+typedef void(^GKCornerEnumeratorBlock)(GKCornerType corner);
+
+static inline void GKCornerEnumerate(GKCornerEnumeratorBlock block) {
+  for (NSInteger corner = 0; corner<GKCornerCount; corner++)
+    block((GKCornerType)corner);
+}
+
 @class GKCorner, GKEdge;
 
 typedef void(^GKCornerEnumerator)(GKCorner *corner);

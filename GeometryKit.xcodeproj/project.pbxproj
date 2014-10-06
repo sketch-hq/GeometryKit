@@ -346,12 +346,14 @@
 		F5C25A9B16A46702002F7A70 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_WARN_UNUSED_FUNCTION = NO;
 			};
 			name = Debug;
 		};
 		F5C25A9C16A46702002F7A70 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_WARN_UNUSED_FUNCTION = NO;
 			};
 			name = Release;
 		};
