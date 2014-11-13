@@ -5,6 +5,7 @@
 
 @implementation GKRect (Expand)
 
+// Note: this method or property is publicly documented in the Scripting API Docs
 - (GKRect *)expandBy:(CGFloat)offset
 {
   return [self expandXBy:offset yBy:offset];

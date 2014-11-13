@@ -63,9 +63,13 @@
 
 @dynamic x, y, width, height;
 
+// Note: this method or property is publicly documented in the Scripting API Docs
 - (CGFloat)x { return self.rect.origin.x; }
+// Note: this method or property is publicly documented in the Scripting API Docs
 - (CGFloat)y { return self.rect.origin.y; }
+// Note: this method or property is publicly documented in the Scripting API Docs
 - (CGFloat)width  { return self.rect.size.width; }
+// Note: this method or property is publicly documented in the Scripting API Docs
 - (CGFloat)height { return self.rect.size.height; }
 
 - (void)setX:(CGFloat)x { _rect.origin.x = x; }
