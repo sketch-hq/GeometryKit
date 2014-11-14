@@ -4,7 +4,7 @@
 #import "GKRect.h"
 
 @interface GKRect (Expand)
-- (GKRect *)expandBy:(CGFloat)offset;
+- (GKRect *)expandBy:(CGFloat)offset BC_SCRIPTING_API;
 - (GKRect *)expandXBy:(CGFloat)xOffset yBy:(CGFloat)yOffset;
 
 - (GKRect *)insetBy:(CGFloat)inset;
