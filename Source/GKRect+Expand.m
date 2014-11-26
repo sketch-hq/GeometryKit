@@ -5,8 +5,7 @@
 
 @implementation GKRect (Expand)
 
-- (GKRect *)expandBy:(CGFloat)offset
-{
+- (GKRect *)expandBy:(CGFloat)offset {
   return [self expandXBy:offset yBy:offset];
 }
 

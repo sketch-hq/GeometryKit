@@ -30,7 +30,7 @@
 
 - (BOOL)isEqual:(GKObjectEnum *)object
 {
-  return [self type] == [object type];
+    return (self == object) || (([self class] == [object class]) && ([self type] == [object type]));
 }
  
 - (NSUInteger)hash

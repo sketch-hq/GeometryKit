@@ -24,7 +24,7 @@
 
 #pragma mark - Basic Properties
 @property (nonatomic) NSRect rect;
-@property (nonatomic) CGFloat x,y, width, height, midX, midY;
+@property (nonatomic) CGFloat x,y, width, height, midX, midY  BC_SCRIPTING_API;
 @property (nonatomic) NSPoint origin;
 @property (nonatomic) NSSize size;
 @end
