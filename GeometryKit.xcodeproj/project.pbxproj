@@ -28,8 +28,6 @@
 		22FCC8DA1756115300CAEA85 /* GKRect.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FCC8B81756115300CAEA85 /* GKRect.m */; };
 		22FCC8DB1756115300CAEA85 /* GKRect+Axis.h in Headers */ = {isa = PBXBuildFile; fileRef = 22FCC8B91756115300CAEA85 /* GKRect+Axis.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		22FCC8DC1756115300CAEA85 /* GKRect+Axis.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FCC8BA1756115300CAEA85 /* GKRect+Axis.m */; };
-		22FCC8DD1756115300CAEA85 /* GKRect+Compare.h in Headers */ = {isa = PBXBuildFile; fileRef = 22FCC8BB1756115300CAEA85 /* GKRect+Compare.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		22FCC8DE1756115300CAEA85 /* GKRect+Compare.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FCC8BC1756115300CAEA85 /* GKRect+Compare.m */; };
 		22FCC8DF1756115300CAEA85 /* GKRect+Corner.h in Headers */ = {isa = PBXBuildFile; fileRef = 22FCC8BD1756115300CAEA85 /* GKRect+Corner.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		22FCC8E01756115300CAEA85 /* GKRect+Corner.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FCC8BE1756115300CAEA85 /* GKRect+Corner.m */; };
 		22FCC8E11756115300CAEA85 /* GKRect+Edge.h in Headers */ = {isa = PBXBuildFile; fileRef = 22FCC8BF1756115300CAEA85 /* GKRect+Edge.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -70,8 +68,6 @@
 		22FCC8B81756115300CAEA85 /* GKRect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKRect.m; path = Source/GKRect.m; sourceTree = SOURCE_ROOT; };
 		22FCC8B91756115300CAEA85 /* GKRect+Axis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GKRect+Axis.h"; path = "Source/GKRect+Axis.h"; sourceTree = SOURCE_ROOT; };
 		22FCC8BA1756115300CAEA85 /* GKRect+Axis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GKRect+Axis.m"; path = "Source/GKRect+Axis.m"; sourceTree = SOURCE_ROOT; };
-		22FCC8BB1756115300CAEA85 /* GKRect+Compare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GKRect+Compare.h"; path = "Source/GKRect+Compare.h"; sourceTree = SOURCE_ROOT; };
-		22FCC8BC1756115300CAEA85 /* GKRect+Compare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GKRect+Compare.m"; path = "Source/GKRect+Compare.m"; sourceTree = SOURCE_ROOT; };
 		22FCC8BD1756115300CAEA85 /* GKRect+Corner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GKRect+Corner.h"; path = "Source/GKRect+Corner.h"; sourceTree = SOURCE_ROOT; };
 		22FCC8BE1756115300CAEA85 /* GKRect+Corner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GKRect+Corner.m"; path = "Source/GKRect+Corner.m"; sourceTree = SOURCE_ROOT; };
 		22FCC8BF1756115300CAEA85 /* GKRect+Edge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GKRect+Edge.h"; path = "Source/GKRect+Edge.h"; sourceTree = SOURCE_ROOT; };
@@ -164,8 +160,6 @@
 				22FCC8B81756115300CAEA85 /* GKRect.m */,
 				22FCC8B91756115300CAEA85 /* GKRect+Axis.h */,
 				22FCC8BA1756115300CAEA85 /* GKRect+Axis.m */,
-				22FCC8BB1756115300CAEA85 /* GKRect+Compare.h */,
-				22FCC8BC1756115300CAEA85 /* GKRect+Compare.m */,
 				22FCC8BD1756115300CAEA85 /* GKRect+Corner.h */,
 				22FCC8BE1756115300CAEA85 /* GKRect+Corner.m */,
 				22FCC8BF1756115300CAEA85 /* GKRect+Edge.h */,
@@ -208,7 +202,6 @@
 				22FCC8D71756115300CAEA85 /* GKPoint.h in Headers */,
 				22FCC8D91756115300CAEA85 /* GKRect.h in Headers */,
 				22FCC8DB1756115300CAEA85 /* GKRect+Axis.h in Headers */,
-				22FCC8DD1756115300CAEA85 /* GKRect+Compare.h in Headers */,
 				22FCC8DF1756115300CAEA85 /* GKRect+Corner.h in Headers */,
 				22FCC8E11756115300CAEA85 /* GKRect+Edge.h in Headers */,
 				22FCC8E31756115300CAEA85 /* GKRect+Expand.h in Headers */,
@@ -278,7 +271,6 @@
 				22FCC8D81756115300CAEA85 /* GKPoint.m in Sources */,
 				22FCC8DA1756115300CAEA85 /* GKRect.m in Sources */,
 				22FCC8DC1756115300CAEA85 /* GKRect+Axis.m in Sources */,
-				22FCC8DE1756115300CAEA85 /* GKRect+Compare.m in Sources */,
 				22FCC8E01756115300CAEA85 /* GKRect+Corner.m in Sources */,
 				22FCC8E21756115300CAEA85 /* GKRect+Edge.m in Sources */,
 				22FCC8E41756115300CAEA85 /* GKRect+Expand.m in Sources */,

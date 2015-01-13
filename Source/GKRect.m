@@ -53,12 +53,20 @@
   return [[self class] rectWithRect:result];
 }
 
-- (void)unionWith:(GKRect *)aRect {
-  self.rect = NSUnionRect(self.rect, aRect.rect);
+- (void)unionWith:(NSRect)aRect {
+  self.rect = NSUnionRect(self.rect, aRect);
 }
 
-- (BOOL)intersectsWithRect:(GKRect *)otherRect {
-  return NSIntersectsRect(self.rect, otherRect.rect);
+- (void)intersectWithRect:(NSRect)otherRect {
+  self.rect = NSIntersectionRect(self.rect, otherRect);
+}
+
+- (BOOL)intersectsWithRect:(NSRect)otherRect {
+  return NSIntersectsRect(self.rect, otherRect);
+}
+
+- (BOOL)containsRect:(NSRect)otherRect  {
+  return NSContainsRect(self.rect, otherRect);
 }
 
 @dynamic x, y, width, height;

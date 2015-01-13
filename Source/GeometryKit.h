@@ -8,7 +8,6 @@
 #import "GKPoint.h"
 #import "GKRect.h"
 #import "GKRect+Axis.h"
-#import "GKRect+Compare.h"
 #import "GKRect+Corner.h"
 #import "GKRect+Edge.h"
 #import "GKRect+Expand.h"

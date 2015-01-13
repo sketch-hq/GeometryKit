@@ -16,8 +16,12 @@
 + (instancetype)rectWithUnionOfRects:(NSArray *)gkRects;
 + (instancetype)safeRectWithUnionOfRects:(NSArray *)gkRects;
 + (instancetype)rectWithUnionOfGKRects:(NSArray *)gkRects;
-- (void)unionWith:(GKRect *)rect;
-- (BOOL)intersectsWithRect:(GKRect *)otherRect;
+
+- (void)unionWith:(NSRect)rect;
+- (void)intersectWithRect:(NSRect)otherRect;
+
+- (BOOL)intersectsWithRect:(NSRect)otherRect;
+- (BOOL)containsRect:(NSRect)otherRect;
 
 - (void)normalise;
 - (void)scaleBy:(CGFloat)scale;
