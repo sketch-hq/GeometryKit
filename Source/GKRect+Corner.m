@@ -23,45 +23,7 @@
 
 - (GKRect *)moveCorner:(GKCorner *)corner toPoint:(GKPoint *)point
 {
-  switch (corner.type) {
-    case GKCornerTopLeft:
-      self.x = point.x;
-      self.y = point.y;
-      break;
-    case GKCornerTopRight:
-      self.x = point.x-self.width;
-      self.y = point.y;
-      break;
-    case GKCornerBottomLeft:
-      self.x = point.x;
-      self.y = point.y-self.height;
-      break;
-    case GKCornerBottomRight:
-      self.x = point.x-self.width;
-      self.y = point.y-self.height;
-      break;
-    case GKCornerMidTop:
-      self.x = point.x-self.width/2.0;
-      self.y = point.y;
-      break;
-    case GKCornerMidLeft:
-      self.x = point.x;
-      self.y = point.y-self.height/2.0;
-      break;
-    case GKCornerMidRight:
-      self.x = point.x-self.width;
-      self.y = point.y-self.height/2;
-      break;
-    case GKCornerMidBottom:
-      self.x = point.x-self.width/2.0;
-      self.y = point.y-self.height;
-      break;
-    case GKCornerMid:
-      self.x = point.x-self.width/2.0;
-      self.y = point.y-self.height/2.0;
-    default:
-      break;
-  }
+  self.rect = GKRectMoveCornerToPoint(self.rect, corner.type, point.point);
   return self;
 }
 

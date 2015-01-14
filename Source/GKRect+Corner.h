@@ -33,6 +33,50 @@ static inline NSPoint GKRectPointForCorner(NSRect rect, GKCornerType corner) {
   }
 };
 
+static inline NSRect GKRectMoveCornerToPoint(NSRect rect, GKCornerType corner, NSPoint point) {
+  switch (corner) {
+    case GKCornerTopLeft:
+      rect.origin.x = point.x;
+      rect.origin.y = point.y;
+      break;
+    case GKCornerTopRight:
+      rect.origin.x = point.x-rect.size.width;
+      rect.origin.y = point.y;
+      break;
+    case GKCornerBottomLeft:
+      rect.origin.x = point.x;
+      rect.origin.y = point.y-rect.size.height;
+      break;
+    case GKCornerBottomRight:
+      rect.origin.x = point.x-rect.size.width;
+      rect.origin.y = point.y-rect.size.height;
+      break;
+    case GKCornerMidTop:
+      rect.origin.x = point.x-rect.size.width/2.0;
+      rect.origin.y = point.y;
+      break;
+    case GKCornerMidLeft:
+      rect.origin.x = point.x;
+      rect.origin.y = point.y-rect.size.height/2.0;
+      break;
+    case GKCornerMidRight:
+      rect.origin.x = point.x-rect.size.width;
+      rect.origin.y = point.y-rect.size.height/2;
+      break;
+    case GKCornerMidBottom:
+      rect.origin.x = point.x-rect.size.width/2.0;
+      rect.origin.y = point.y-rect.size.height;
+      break;
+    case GKCornerMid:
+      rect.origin.x = point.x-rect.size.width/2.0;
+      rect.origin.y = point.y-rect.size.height/2.0;
+    default:
+      break;
+  }
+  return rect;
+}
+
+
 @interface GKRect (Corner)
 - (GKPoint *)pointForCorner:(GKCorner *)corner;
 - (NSArray *)pointsForCorners:(NSArray *)corners;
