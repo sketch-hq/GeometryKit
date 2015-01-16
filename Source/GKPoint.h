@@ -3,45 +3,51 @@
 
 #import <Foundation/Foundation.h>
 
-#if TARGET_OS_IPHONE
-#import <CoreGraphics/CoreGraphics.h>
-#endif
+#import "GKCorner.h"
+#import "GKRect+Corner.h"
+#import "GKLine.h"
 
-static inline BOOL GKPointCanSnapToPoint(NSPoint point, NSPoint other, CGFloat margin) {
+static inline CGSize BCPointOffsetToPoint(CGPoint me, CGPoint otherPoint) {
+  return CGSizeMake(me.x - otherPoint.x, me.y - otherPoint.y);
+}
+
+static inline BOOL BCPointCanSnapToPoint(NSPoint point, NSPoint other, CGFloat margin) {
   return ABS(point.x - other.x) < margin || ABS(point.y - other.y) < margin;
 }
 
-static inline NSPoint GKPointSnapToPoint(NSPoint point, NSPoint other, CGFloat margin) {
+static inline CGPoint BCPointSnapToPointWithMargin(CGPoint me, CGPoint other, CGFloat margin) {
+  if (ABS(me.x - other.x) < margin)
+    me.x = other.x;
+  if (ABS(me.y - other.y) < margin)
+    me.y = other.y;
+  return me;
+}
+
+static inline CGPoint BCPointSnapToRectWithMargin(CGPoint point, CGRect rect, CGFloat margin) {
+  CGPoint __block result = point;
+  GKCornerEnumerate(^(GKCorner corner) {
+    result = BCPointSnapToPointWithMargin(result, GKRectPointForCorner(rect, corner), margin);
+  });
+  return result;
+}
+
+static inline CGPoint BCPointSnapToLinesWithMargin(CGPoint point, NSArray *lines, CGFloat margin) {
+  BCAxis axis = BCAxisFlip([(GKLine *)[lines firstObject] axis]);
+  
+  CGFloat position = GKPointPositionForAxis(point, axis);
+  NSArray *sortedLines = [GKLine sortLines:lines byDistanceToValue:position];
+  GKLine *line = [sortedLines firstObject];
+  
+  if (ABS(position - line.position) < margin)
+    point = GKPointWithPositionForAxis(point, axis, line.position);
+  
+  return point;
+}
+
+static inline NSPoint BCPointSnapToPoint(NSPoint point, NSPoint other, CGFloat margin) {
   if (ABS(point.x - other.x) < margin)
     point.x = other.x;
   if (ABS(point.y - other.y) < margin)
     point.y = other.y;
   return point;
 }
-
-@class GKOffset, GKRect, GKAxis;
-
-@interface GKPoint : NSObject <NSCopying>
-
-#pragma mark - Creating Points
-+ (id)pointWithPoint:(NSPoint)aPoint;
-+ (id)pointWithX:(CGFloat)x y:(CGFloat)y;
-- (id)initWithPoint:(NSPoint)aPoint;
-
-#pragma mark - Basic Properties
-@property (assign, nonatomic) NSPoint point;
-@property (assign, nonatomic) CGFloat x, y;
-
-#pragma mark -
-- (CGFloat)distanceToPoint:(GKPoint *)point;
-- (GKOffset *)offsetToPoint:(GKPoint *)point;
-
-#pragma mark - Snapping
-- (GKPoint *)snapToRect:(GKRect *)rect withMargin:(CGFloat)margin;
-- (GKPoint *)snapToPoint:(GKPoint *)point withMargin:(CGFloat)margin;
-- (GKPoint *)snapToLines:(NSArray *)lines withMargin:(CGFloat)margin;
-
-#pragma mark - Axis
-- (CGFloat)positionForAxis:(GKAxis *)axis;
-- (void)setPosition:(CGFloat)position forAxis:(GKAxis *)axis;
-@end

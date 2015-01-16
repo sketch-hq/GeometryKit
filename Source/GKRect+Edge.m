@@ -55,9 +55,9 @@
   self.height = maxY - self.y;
 }
 
-- (CGFloat)valueForEdge:(GKEdge *)edge
+- (CGFloat)valueForEdge:(GKEdgeType)edge
 {
-  switch (edge.type) {
+  switch (edge) {
     case GKEdgeLeftMask:
       return self.minX;
     case GKEdgeMidVerticalMask:

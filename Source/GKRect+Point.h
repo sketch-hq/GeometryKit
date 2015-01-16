@@ -6,8 +6,8 @@
 @class GKPoint, GKOffset;
 
 @interface GKRect (Point)
-- (BOOL)containsPoint:(GKPoint *)point;
-- (BOOL)containsPoint:(GKPoint *)point withInsetMargin:(CGFloat)rectInset;
-- (GKOffset *)innerOffsetOfPoint:(GKPoint *)point;
-- (GKRect *)moveToPoint:(GKPoint *)point withOffset:(GKOffset *)offset;
+- (BOOL)containsPoint:(CGPoint)point;
+- (BOOL)containsPoint:(CGPoint)point withInsetMargin:(CGFloat)rectInset;
+- (CGSize)innerOffsetOfPoint:(CGPoint)point;
+- (GKRect *)moveToPoint:(CGPoint)point withOffset:(CGSize)offset;
 @end

@@ -2,8 +2,7 @@
 //  Copyright (c) 2014 Bohemian Coding. All rights reserved.
 
 #import "GKRect.h"
-
-@class GKEdge;
+#import "GKEdge.h"
 
 @interface GKRect (Basics)
 @property CGFloat minX, maxX, minY, maxY;
@@ -15,5 +14,5 @@
 - (void)resizeMinYTo:(CGFloat)maxY;
 - (void)resizeMaxYTo:(CGFloat)maxY;
 
-- (CGFloat)valueForEdge:(GKEdge *)edge;
+- (CGFloat)valueForEdge:(GKEdgeType)edge;
 @end

@@ -3,26 +3,20 @@
 
 #import "GKRect+Corner.h"
 #import "GKRect+Edge.h"
-#import "GKOffset.h"
 #import "GKPoint.h"
 
 @implementation GKRect (Corner)
 
-- (GKPoint *)pointForCorner:(GKCorner *)corner
-{
-  return [GKPoint pointWithPoint:GKRectPointForCorner(self.rect, corner.type)];
-}
-
 - (NSArray *)pointsForCorners:(NSArray *)corners
 {
-  return [corners map:^id(GKCorner *corner) {
-    return [self pointForCorner:corner];
+  return [corners map:^id(NSNumber *cornerNumber) {
+    return [NSValue valueWithPoint:GKRectPointForCorner(self.rect, cornerNumber.integerValue)];
   }];
 }
 
-- (GKRect *)moveCorner:(GKCorner *)corner toPoint:(GKPoint *)point
+- (GKRect *)moveCorner:(GKCorner)corner toPoint:(CGPoint)point
 {
-  switch (corner.type) {
+  switch (corner) {
     case GKCornerTopLeft:
       self.x = point.x;
       self.y = point.y;
@@ -64,9 +58,9 @@
   return self;
 }
 
-- (GKRect *)resizeByPuttingCorner:(GKCorner *)corner atPoint:(GKPoint *)point
+- (GKRect *)resizeByPuttingCorner:(GKCorner)corner atPoint:(CGPoint)point
 {
-  switch (corner.type) {
+  switch (corner) {
     case GKCornerTopLeft:
       [self resizeMinXTo:point.x];
       [self resizeMinYTo:point.y];
@@ -101,54 +95,19 @@
   return self;
 }
 
-- (GKCorner *)closestCornerForPoint:(GKPoint *)point withMargin:(CGFloat)margin
+- (GKCorner)closestCornerForPoint:(CGPoint)point withMargin:(CGFloat)margin satisfyingMask:(NSUInteger)cornerMask
 {
-  __weak id blockself = self;
-  return [GKCorner firstCornerSatisfyingPredicate:^BOOL(GKCorner *corner) {
-    return [[blockself pointForCorner:corner] distanceToPoint:point] < margin;
-  }];
+  NSRect rect = self.rect;
+  return GKCornerFirstCornerSatisfyingPredicate(^BOOL(GKCorner corner) {
+    return GKCornerSatisfiesMask(corner, cornerMask) && BCDistanceBetweenPoints(GKRectPointForCorner(rect, corner), point) < margin;
+  });
 }
 
-- (GKCorner *)closestCornerForPoint:(GKPoint *)point withMargin:(CGFloat)margin satisfyingMask:(NSUInteger)cornerMask
+- (CGSize)distanceFromCornerToMid:(GKCorner)corner
 {
-  __weak id blockSelf = self;
-  return [GKCorner firstCornerSatisfyingPredicate:^BOOL(GKCorner *corner) {
-    return [corner satisfiesMask:cornerMask] && [[blockSelf pointForCorner:corner] distanceToPoint:point] < margin;
-  }];
-}
-
-
-- (GKCorner *)closestCornerForPoint:(GKPoint *)point marginCallback:(BCCornerOffsetCallbackBlock)marginBlock
-{
-  __weak id blockSelf = self;
-  return [GKCorner firstCornerSatisfyingPredicate:^BOOL(GKCorner *corner) {
-    GKOffset *tolerance = marginBlock(corner);
-    return [[[blockSelf pointForCorner:corner] offsetToPoint:point] isSmallerThanOffset:tolerance];
-  }];
-}
-
-- (GKRect *)snapToRects:(NSArray *)rects withMargin:(CGFloat)margin
-{
-  GKPoint *topLeft = [self pointForCorner:[GKCorner cornerWithType:GKCornerTopLeft]];
-  for (GKRect *otherRect in rects)
-    [topLeft snapToRect:otherRect withMargin:margin];
-  [self setX:topLeft.x];
-  [self setY:topLeft.y];
-  
-  GKPoint *bottomRight = [self pointForCorner:[GKCorner cornerWithType:GKCornerBottomRight]];
-  for (GKRect *otherRect in rects)
-    [bottomRight snapToRect:otherRect withMargin:margin];
-  [self setMaxX:bottomRight.x];
-  [self setMaxY:bottomRight.y];
-  
-  return self;
-}
-
-- (GKOffset *)distanceFromCornerToMid:(GKCorner *)corner
-{
-  GKPoint *cornerPoint = [self pointForCorner:corner];
-  GKPoint *mid = [self pointForCorner:[GKCorner cornerWithType:GKCornerMid]];
-  return [GKOffset offsetFromPoint:mid toPoint:cornerPoint];
+  CGPoint cornerPoint = GKRectPointForCorner(self.rect, corner);
+  CGPoint mid = GKRectPointForCorner(self.rect, GKCornerMid);
+  return NSMakeSize(mid.x-cornerPoint.x, mid.y-cornerPoint.y);
 }
 
 @end

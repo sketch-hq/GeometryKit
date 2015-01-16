@@ -2,9 +2,10 @@
 //  Copyright (c) 2014 Bohemian Coding. All rights reserved.
 
 #import "GKObjectEnum.h"
+#import "GKEdge.h"
 
 //assuming a flipped coordinate system the following holds true
-typedef enum GKCornerType : NSInteger {
+typedef NS_ENUM(NSInteger, GKCorner) {
   GKCornerNone        = -1,
   GKCornerTopLeft     = 0,
   GKCornerTopRight    = 1,
@@ -17,7 +18,7 @@ typedef enum GKCornerType : NSInteger {
   
   //not counting when enumerating
   GKCornerMid         = 8
-} GKCornerType;
+};
 
 enum {
   GKCornerTopLeftMask     = 1 << GKCornerTopLeft,
@@ -31,48 +32,134 @@ enum {
 };
 
 #define GKCornerCount 8
-#define GKCornerMaskAll     (GKCornerTopLeftMask | GKCornerTopRightMask | GKCornerBottomLeftMask | GKCornerBottomRightMask | GKCornerMidTopMask | GKCornerMidLeftMask | GKCornerMidRightMask | GKCornerMidBottomMask)
-#define GKCornerMaskCorner  (GKCornerTopLeftMask | GKCornerTopRightMask | GKCornerBottomLeftMask | GKCornerBottomRightMask)
-#define GKCornerMaskMid      (GKCornerMidTopMask | GKCornerMidLeftMask | GKCornerMidRightMask | GKCornerMidBottomMask)
+#define GKCornerMaskAll    (GKCornerTopLeftMask | GKCornerTopRightMask | GKCornerBottomLeftMask | GKCornerBottomRightMask | GKCornerMidTopMask | GKCornerMidLeftMask | GKCornerMidRightMask | GKCornerMidBottomMask)
+#define GKCornerMaskCorner (GKCornerTopLeftMask | GKCornerTopRightMask | GKCornerBottomLeftMask | GKCornerBottomRightMask)
+#define GKCornerMaskMid    (GKCornerMidTopMask | GKCornerMidLeftMask | GKCornerMidRightMask | GKCornerMidBottomMask)
 
-typedef void(^GKCornerEnumeratorBlock)(GKCornerType corner);
+typedef void(^GKCornerEnumeratorBlock)(GKCorner corner);
 
 static inline void GKCornerEnumerate(GKCornerEnumeratorBlock block) {
   for (NSInteger corner = 0; corner<GKCornerCount; corner++)
-    block((GKCornerType)corner);
+    block((GKCorner)corner);
 }
 
-@class GKCorner, GKEdge;
+static inline GKCorner BCCornerByRotating45DegreesCounterClockwise(GKCorner corner) {
+  switch (corner) {
+    case GKCornerTopLeft:     return GKCornerMidLeft;
+    case GKCornerTopRight:    return GKCornerMidTop;
+    case GKCornerBottomLeft:  return GKCornerMidBottom;
+    case GKCornerBottomRight: return GKCornerMidRight;
+    case GKCornerMidTop:      return GKCornerTopLeft;
+    case GKCornerMidLeft:     return GKCornerBottomLeft;
+    case GKCornerMidRight:    return GKCornerTopRight;
+    case GKCornerMidBottom:   return GKCornerBottomRight;
+    default:                  return GKCornerMid;
+  }
+}
 
-typedef void(^GKCornerEnumerator)(GKCorner *corner);
-typedef BOOL(^GKCornerEnumeratorPredicate)(GKCorner *corner);
+static inline GKCorner BCCornerByRotatingByDegrees(GKCorner corner, CGFloat degrees) {
+  if (degrees < 45.0/2 && degrees > -45.0/2)
+    return corner;
+  else {
+    corner = BCCornerByRotating45DegreesCounterClockwise(corner);
+    if (degrees < 0)
+      return BCCornerByRotatingByDegrees(corner, degrees+45);
+    else
+      return BCCornerByRotatingByDegrees(corner, degrees-45);
+  }
+}
 
-@interface GKCorner : GKObjectEnum
-@property (assign, nonatomic) GKCornerType type;
-#pragma mark - Creating Corners
-+ (id)cornerWithType:(GKCornerType)corner;
+static inline GKCorner GKCornerFlip(GKCorner corner) {
+  NSUInteger number = corner;
+  if (number < GKCornerMidTop)
+    number = GKCornerBottomRight - number;
+  else
+    number = 11- number;
 
-#pragma mark - Flip
-- (GKCorner *)flip;
-- (GKCorner *)cornerByFlipping;
-- (GKCorner *)cornerByRotating45DegreesCounterClockwise;
-- (GKCorner *)cornerByRotatingByDegrees:(NSInteger)degrees;
-- (GKCorner *)flipByAxisMask:(NSUInteger)mask;
+  return (GKCorner) number;
+}
 
-#pragma mark - Querying
-- (BOOL)isInCorner;
-- (BOOL)isInMid;
-- (BOOL)isInMidHorizontal;
-- (BOOL)isInMidVertical;
-- (BOOL)satisfiesMask:(NSUInteger)mask;
+static inline BOOL GKCornerSatisfiesMask(GKCorner corner, NSUInteger mask) {
+  NSUInteger shifted = (NSUInteger) (1 << (NSUInteger)corner);
+  return (mask & shifted) == shifted;
+}
 
-+ (void)enumerateCornersInBlock:(GKCornerEnumerator)enumeratorBlock;
-+ (GKCorner *)firstCornerSatisfyingPredicate:(GKCornerEnumeratorPredicate)enumeratorBlock;
+static inline BOOL GKCornerIsInMidHorizontal(GKCorner corner) {
+  return corner == GKCornerMidLeft || corner == GKCornerMidRight;
+}
 
-+ (NSArray *)allCorners;
-+ (NSArray *)cornersSatisfyingPredicate:(GKCornerEnumeratorPredicate)predicate;
-+ (NSArray *)cornersSatisfyingMask:(NSUInteger)mask;
+static inline BOOL GKCornerIsInMidVertical(GKCorner corner) {
+return corner == GKCornerMidTop || corner == GKCornerMidBottom;
+}
 
-- (NSUInteger)rectEdgesMask;
+static inline GKCorner GKCornerFlipByAxis(GKCorner corner, BCAxis axis) {
+  if (axis == BCAxisHorizontal) {
+    switch (corner) {
+      case GKCornerTopLeft:
+        return GKCornerTopRight;
+      case GKCornerTopRight:
+        return GKCornerTopLeft;
+      case GKCornerBottomLeft:
+        return GKCornerBottomRight;
+      case GKCornerBottomRight:
+        return GKCornerBottomLeft;
+      case GKCornerMidLeft:
+        return GKCornerMidRight;
+      case GKCornerMidRight:
+        return GKCornerMidLeft;
+      default:
+        break;
+    }
+  } else {
+    switch (corner) {
+      case GKCornerTopLeft:
+        return GKCornerBottomLeft;
+      case GKCornerTopRight:
+        return GKCornerBottomRight;
+      case GKCornerBottomLeft:
+        return GKCornerTopLeft;
+      case GKCornerBottomRight:
+        return GKCornerTopRight;
+      case GKCornerMidTop:
+        return GKCornerMidBottom;
+      case GKCornerMidBottom:
+        return GKCornerMidTop;
+      default:
+        break;
+    }
+  }
+  return corner;
+}
 
-@end
+static inline NSUInteger GKCornerRectEdgesMask(GKCorner type) {
+  switch (type) {
+    case GKCornerTopLeft:
+      return GKEdgeTopMask | GKEdgeLeftMask;
+    case GKCornerMidTop:
+      return GKEdgeTopMask;
+    case GKCornerTopRight:
+      return GKEdgeTopMask | GKEdgeRightMask;
+    case GKCornerMidLeft:
+      return GKEdgeLeftMask;
+    case GKCornerMidRight:
+      return GKEdgeRightMask;
+    case GKCornerBottomLeft:
+      return GKEdgeBottomMask | GKEdgeLeftMask;
+    case GKCornerMidBottom:
+      return GKEdgeBottomMask;
+    case GKCornerBottomRight:
+      return GKEdgeBottomMask | GKEdgeRightMask;
+    default:
+      return 0;
+  }
+}
+
+typedef BOOL(^GKCornerEnumeratorPredicate)(GKCorner corner);
+
+static inline GKCorner GKCornerFirstCornerSatisfyingPredicate(GKCornerEnumeratorPredicate block) {
+  for (NSInteger corner = 0; corner<GKCornerCount; corner++) {
+    if (block((GKCorner)corner))
+      return (GKCorner)corner;
+  }
+  return GKCornerNone;
+}

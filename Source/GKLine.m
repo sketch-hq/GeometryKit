@@ -2,13 +2,12 @@
 // Copyright Bohemian Coding
 
 #import "GKLine.h"
-#import "GKAxis.h"
 #import "GKRect.h"
 #import "GKRect+Axis.h"
 
 @implementation GKLine
 
-+ (GKLine *)lineOnAxis:(GKAxis *)axis position:(CGFloat)position {
++ (GKLine *)lineOnAxis:(BCAxis)axis position:(CGFloat)position {
   GKLine *line = [[GKLine alloc] init];
   line.axis = axis;
   line.position = position;
@@ -16,7 +15,7 @@
 }
 
 - (BOOL)snapToRect:(GKRect *)rect margin:(CGFloat)margin {
-  GKAxis *axis = [self.axis flippedAxis];
+  BCAxis axis = BCAxisFlip(self.axis);
   CGFloat min = [rect minForAxis:axis];
   CGFloat max = [rect maxForAxis:axis];
   if ([self snapToPosition:min margin:margin])

@@ -6,29 +6,28 @@
 #import "GKRect+Corner.h"
 #import "GKPoint.h"
 #import "GKCorner.h"
-#import "GKOffset.h"
 
 @implementation GKRect (Point)
 
-- (BOOL)containsPoint:(GKPoint *)point
+- (BOOL)containsPoint:(CGPoint)point
 {
-  return NSPointInRect(point.point, self.rect);
+  return NSPointInRect(point, self.rect);
 }
 
-- (BOOL)containsPoint:(GKPoint *)point withInsetMargin:(CGFloat)rectInset
+- (BOOL)containsPoint:(CGPoint)point withInsetMargin:(CGFloat)rectInset
 {
   return [[[self copy] insetBy:rectInset] containsPoint:point];
 }
 
-- (GKOffset *)innerOffsetOfPoint:(GKPoint *)point
+- (CGSize)innerOffsetOfPoint:(CGPoint)point
 {
-  return [point offsetToPoint:[self pointForCorner:[GKCorner cornerWithType:GKCornerTopLeft]]];
+  return BCPointOffsetToPoint(point, GKRectPointForCorner(self.rect, GKCornerTopLeft));
 }
 
-- (GKRect *)moveToPoint:(GKPoint *)point withOffset:(GKOffset *)offset
+- (GKRect *)moveToPoint:(CGPoint)point withOffset:(CGSize)offset
 {
-  self.x = point.x - offset.xOffset;
-  self.y = point.y - offset.yOffset;
+  self.x = point.x - offset.width;
+  self.y = point.y - offset.height;
   return self;
 }
 

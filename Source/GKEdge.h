@@ -12,12 +12,17 @@ typedef enum GKEdgeType : NSUInteger {
   GKEdgeMidHorizontalMask = 32 
 } GKEdgeType;
 
-@interface GKEdge : GKObjectEnum
-@property (assign, nonatomic) GKEdgeType type;
-
-#pragma mark - Creating Edges
-+ (id)edgeWithType:(GKEdgeType)type;
-
-#pragma mark - Flip
-- (void)flip;
-@end
+static inline GKEdgeType GKEdgeFlip(GKEdgeType edge) {
+  switch (edge) {
+    case GKEdgeLeftMask:
+      return GKEdgeRightMask;
+    case GKEdgeRightMask:
+      return GKEdgeLeftMask;
+    case GKEdgeTopMask:
+      return GKEdgeBottomMask;
+    case GKEdgeBottomMask:
+      return GKEdgeTopMask;
+    default:
+      return edge;
+  }
+}
