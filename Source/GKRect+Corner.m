@@ -100,11 +100,8 @@
   return GKRectClosestCornerForPoint(self.rect, point, margin, cornerMask);
 }
 
-- (CGSize)distanceFromCornerToMid:(GKCorner)corner
-{
-  CGPoint cornerPoint = GKRectPointForCorner(self.rect, corner);
-  CGPoint mid = GKRectPointForCorner(self.rect, GKCornerMid);
-  return NSMakeSize(mid.x-cornerPoint.x, mid.y-cornerPoint.y);
+- (CGSize)distanceFromCornerToMid:(GKCorner)corner {
+  return GKRectDistanceFromCornerToMid(self.rect, corner);
 }
 
 @end

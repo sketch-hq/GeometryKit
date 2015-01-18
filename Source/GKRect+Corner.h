@@ -37,6 +37,12 @@ static inline GKCorner GKRectClosestCornerForPoint(NSRect rect, CGPoint point, C
   });
 }
 
+static inline CGSize GKRectDistanceFromCornerToMid(CGRect rect, GKCorner corner) {
+  CGPoint cornerPoint = GKRectPointForCorner(rect, corner);
+  CGPoint mid = GKRectPointForCorner(rect, GKCornerMid);
+  return CGSizeMake(mid.x-cornerPoint.x, mid.y-cornerPoint.y);
+}
+
 @interface GKRect (Corner)
 - (NSArray *)pointsForCorners:(NSArray *)corners;
 

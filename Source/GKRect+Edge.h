@@ -3,6 +3,7 @@
 
 #import "GKRect.h"
 #import "GKEdge.h"
+#import "GKCorner.h"
 
 @interface GKRect (Basics)
 @property CGFloat minX, maxX, minY, maxY;
@@ -16,3 +17,69 @@
 
 - (CGFloat)valueForEdge:(GKEdgeType)edge;
 @end
+
+static inline CGRect GKRectResizeMinXTo(CGRect rect, CGFloat minX) {
+  rect.size.width = CGRectGetMaxX(rect) - minX;
+  rect.origin.x = minX;
+  return rect;
+}
+
+static inline CGRect GKRectResizeMaxXTo(CGRect rect, CGFloat maxX) {
+  rect.size.width = maxX - rect.origin.x;
+  return rect;
+}
+
+static inline CGRect GKRectResizeMinYTo(CGRect rect, CGFloat minY) {
+  rect.size.height = CGRectGetMaxY(rect) - minY;
+  rect.origin.y = minY;
+  return rect;
+}
+
+static inline CGRect GKRectResizeMaxYTo(CGRect rect, CGFloat maxY) {
+  rect.size.height = maxY - rect.origin.y;
+  return rect;
+}
+
+static inline CGRect GKRectResizeByPuttingCorner(CGRect rect, GKCorner corner, CGPoint point) {
+  switch (corner) {
+    case GKCornerTopLeft: {
+      rect = GKRectResizeMinXTo(rect, point.x);
+      rect = GKRectResizeMinYTo(rect, point.y);
+      break;
+    }
+    case GKCornerTopRight: {
+      rect = GKRectResizeMaxXTo(rect, point.x);
+      rect = GKRectResizeMinYTo(rect, point.y);
+      break;
+    }
+    case GKCornerBottomLeft: {
+      rect = GKRectResizeMinXTo(rect, point.x);
+      rect = GKRectResizeMaxYTo(rect, point.y);
+      break;
+    }
+    case GKCornerBottomRight: {
+      rect = GKRectResizeMaxXTo(rect, point.x);
+      rect = GKRectResizeMaxYTo(rect, point.y);
+      break;
+    }
+    case GKCornerMidTop: {
+      rect = GKRectResizeMinYTo(rect, point.y);
+      break;
+    }
+    case GKCornerMidLeft: {
+      rect = GKRectResizeMinXTo(rect, point.x);
+      break;
+    }
+    case GKCornerMidRight: {
+      rect = GKRectResizeMaxXTo(rect, point.x);
+      break;
+    }
+    case GKCornerMidBottom: {
+      rect = GKRectResizeMaxYTo(rect, point.y);
+      break;
+    }
+    default:
+      break;
+  }
+  return rect;
+}

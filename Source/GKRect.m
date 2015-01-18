@@ -100,10 +100,7 @@
 }
 
 - (void)normalise {
-  self.x = NSMinX(self.rect);
-  self.y = NSMinY(self.rect);
-  self.width = ABS(self.width);
-  self.height = ABS(self.height);
+  self.rect = GKRectNormalise(self.rect);
 }
 
 - (void)scaleBy:(CGFloat)scale {

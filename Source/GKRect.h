@@ -25,6 +25,13 @@ static inline CGFloat GKRectValueForKey(CGRect rect, NSString *key) {
     return 0;
 }
 
+static inline CGRect GKRectNormalise(CGRect rect) {
+  return CGRectMake(CGRectGetMinX(rect),
+                    CGRectGetMinY(rect),
+                    ABS(rect.size.width),
+                    ABS(rect.size.height));
+}
+
 @interface GKRect : NSObject <NSCopying>
 
 #pragma mark - Creating Rects
