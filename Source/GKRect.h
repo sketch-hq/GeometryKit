@@ -7,6 +7,24 @@
 #import <CoreGraphics/CoreGraphics.h>
 #endif
 
+static inline CGFloat GKRectValueForKey(CGRect rect, NSString *key) {
+  if ([key isEqualToString:@"minX"])
+    return CGRectGetMinX(rect);
+  else if ([key isEqualToString:@"midX"])
+    return CGRectGetMidX(rect);
+  else if ([key isEqualToString:@"maxX"])
+    return CGRectGetMaxX(rect);
+  
+  else if ([key isEqualToString:@"minY"])
+    return CGRectGetMinY(rect);
+  else if ([key isEqualToString:@"midY"])
+    return CGRectGetMidY(rect);
+  else if ([key isEqualToString:@"maxY"])
+    return CGRectGetMaxY(rect);
+  else
+    return 0;
+}
+
 @interface GKRect : NSObject <NSCopying>
 
 #pragma mark - Creating Rects

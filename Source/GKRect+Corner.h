@@ -29,7 +29,13 @@ static inline NSPoint GKRectPointForCorner(NSRect rect, GKCorner corner) {
     default:
       return NSZeroPoint;
   }
-};
+}
+
+static inline GKCorner GKRectClosestCornerForPoint(NSRect rect, CGPoint point, CGFloat margin, NSUInteger cornerMask) {
+  return GKCornerFirstCornerSatisfyingPredicate(^BOOL(GKCorner corner) {
+    return GKCornerSatisfiesMask(corner, cornerMask) && BCDistanceBetweenPoints(GKRectPointForCorner(rect, corner), point) < margin;
+  });
+}
 
 @interface GKRect (Corner)
 - (NSArray *)pointsForCorners:(NSArray *)corners;

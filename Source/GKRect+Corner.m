@@ -97,10 +97,7 @@
 
 - (GKCorner)closestCornerForPoint:(CGPoint)point withMargin:(CGFloat)margin satisfyingMask:(NSUInteger)cornerMask
 {
-  NSRect rect = self.rect;
-  return GKCornerFirstCornerSatisfyingPredicate(^BOOL(GKCorner corner) {
-    return GKCornerSatisfiesMask(corner, cornerMask) && BCDistanceBetweenPoints(GKRectPointForCorner(rect, corner), point) < margin;
-  });
+  return GKRectClosestCornerForPoint(self.rect, point, margin, cornerMask);
 }
 
 - (CGSize)distanceFromCornerToMid:(GKCorner)corner
