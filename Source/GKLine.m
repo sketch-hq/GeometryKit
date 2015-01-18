@@ -14,10 +14,10 @@
   return line;
 }
 
-- (BOOL)snapToRect:(GKRect *)rect margin:(CGFloat)margin {
+- (BOOL)snapToRect:(NSRect)rect margin:(CGFloat)margin {
   BCAxis axis = BCAxisFlip(self.axis);
-  CGFloat min = [rect minForAxis:axis];
-  CGFloat max = [rect maxForAxis:axis];
+  CGFloat min = GKRectMinForAxis(rect, axis);
+  CGFloat max = GKRectMaxForAxis(rect, axis);
   if ([self snapToPosition:min margin:margin])
     return YES;
   else if ([self snapToPosition:max margin:margin])

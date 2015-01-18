@@ -9,7 +9,7 @@
 
 + (GKLine *)lineOnAxis:(BCAxis)axis position:(CGFloat)position;
 
-- (BOOL)snapToRect:(GKRect *)rect margin:(CGFloat)margin;
+- (BOOL)snapToRect:(NSRect)rect margin:(CGFloat)margin;
 
 + (NSArray *)sortLines:(NSArray *)lines byDistanceToValue:(CGFloat)value;
 @end

@@ -16,82 +16,13 @@
 
 - (GKRect *)moveCorner:(GKCorner)corner toPoint:(CGPoint)point
 {
-  switch (corner) {
-    case GKCornerTopLeft:
-      self.x = point.x;
-      self.y = point.y;
-      break;
-    case GKCornerTopRight:
-      self.x = point.x-self.width;
-      self.y = point.y;
-      break;
-    case GKCornerBottomLeft:
-      self.x = point.x;
-      self.y = point.y-self.height;
-      break;
-    case GKCornerBottomRight:
-      self.x = point.x-self.width;
-      self.y = point.y-self.height;
-      break;
-    case GKCornerMidTop:
-      self.x = point.x-self.width/2.0;
-      self.y = point.y;
-      break;
-    case GKCornerMidLeft:
-      self.x = point.x;
-      self.y = point.y-self.height/2.0;
-      break;
-    case GKCornerMidRight:
-      self.x = point.x-self.width;
-      self.y = point.y-self.height/2;
-      break;
-    case GKCornerMidBottom:
-      self.x = point.x-self.width/2.0;
-      self.y = point.y-self.height;
-      break;
-    case GKCornerMid:
-      self.x = point.x-self.width/2.0;
-      self.y = point.y-self.height/2.0;
-    default:
-      break;
-  }
+  self.rect = GKRectMoveToCorner(self.rect, corner, point);
   return self;
 }
 
 - (GKRect *)resizeByPuttingCorner:(GKCorner)corner atPoint:(CGPoint)point
 {
-  switch (corner) {
-    case GKCornerTopLeft:
-      [self resizeMinXTo:point.x];
-      [self resizeMinYTo:point.y];
-      break;
-    case GKCornerTopRight:
-      [self resizeMaxXTo:point.x];
-      [self resizeMinYTo:point.y];
-      break;
-    case GKCornerBottomLeft:
-      [self resizeMinXTo:point.x];
-      [self resizeMaxYTo:point.y];
-      break;
-    case GKCornerBottomRight:
-      [self resizeMaxXTo:point.x];
-      [self resizeMaxYTo:point.y];
-      break;
-    case GKCornerMidTop:
-      [self resizeMinYTo:point.y];
-      break;
-    case GKCornerMidLeft:
-      [self resizeMinXTo:point.x];
-      break;
-    case GKCornerMidRight:
-      [self resizeMaxXTo:point.x];
-      break;
-    case GKCornerMidBottom:
-      [self resizeMaxYTo:point.y];
-      break;
-    default:
-      break;
-  }
+  self.rect = GKRectResizeByPuttingCorner(self.rect, corner, point);
   return self;
 }
 
