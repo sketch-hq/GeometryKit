@@ -5,11 +5,6 @@
 #import "GKRect.h"
 #import "GKRect+Axis.h"
 
-@interface GKLine ()
-@property (nonatomic, readwrite) BCAxis axis;
-@property (nonatomic, readwrite) CGFloat position;
-@end
-
 @implementation GKLine
 
 + (GKLine *)lineOnAxis:(BCAxis)axis position:(CGFloat)position {

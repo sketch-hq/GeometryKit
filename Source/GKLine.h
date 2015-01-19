@@ -37,8 +37,8 @@ static inline BOOL GKLineSnapsToRect(GKLineType line, CGRect rect, CGFloat margi
 }
 
 @interface GKLine : NSObject
-@property (nonatomic, readonly) BCAxis axis;
-@property (nonatomic, readonly) CGFloat position;
+@property (nonatomic) BCAxis axis;
+@property (nonatomic) CGFloat position;
 + (GKLine *)lineOnAxis:(BCAxis)axis position:(CGFloat)position;
 @end
 
