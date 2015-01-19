@@ -8,8 +8,8 @@
 #endif
 
 /**
- * GKRect is a protocol that defines how rect-like instances should behave.
- * GKRect implements the protocol, but so do a few other objects which act as rects
+ * BCRect is a protocol that defines how rect-like instances should behave.
+ * BCRect implements the protocol, but so do a few other objects which act as rects
  */
 
 @protocol GKRect <NSObject>
