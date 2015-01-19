@@ -12,5 +12,4 @@
 #import "GKRect+Relative.h"
 #import "GKRect+Point.h"
 #import "GKEdge.h"
-#import "GKOffset.h"
 #import "GKLine.h"
