@@ -33,46 +33,4 @@
   return NSMakePoint(self.midX, self.midY);
 }
 
-- (void)resizeMinXTo:(CGFloat)minX
-{
-  self.width = self.maxX - minX;
-  self.x = minX;
-}
-
-- (void)resizeMaxXTo:(CGFloat)maxX
-{
-  self.width = maxX - self.x;
-}
-
-- (void)resizeMinYTo:(CGFloat)minY
-{
-  self.height = self.maxY - minY;
-  self.y = minY;
-}
-
-- (void)resizeMaxYTo:(CGFloat)maxY
-{
-  self.height = maxY - self.y;
-}
-
-- (CGFloat)valueForEdge:(GKEdgeType)edge
-{
-  switch (edge) {
-    case GKEdgeLeftMask:
-      return self.minX;
-    case GKEdgeMidVerticalMask:
-      return self.midX;
-    case GKEdgeRightMask:
-      return self.maxX;
-    case GKEdgeTopMask:
-      return self.minY;
-    case GKEdgeMidHorizontalMask:
-      return self.midY;
-    case GKEdgeBottomMask:
-      return self.maxY;
-    default:
-      return 0;
-  }
-}
-
 @end

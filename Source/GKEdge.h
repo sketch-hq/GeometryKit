@@ -8,21 +8,4 @@ typedef enum GKEdgeType : NSUInteger {
   GKEdgeRightMask         = 2,
   GKEdgeTopMask           = 4,
   GKEdgeBottomMask        = 8,
-  GKEdgeMidVerticalMask   = 16,
-  GKEdgeMidHorizontalMask = 32 
 } GKEdgeType;
-
-static inline GKEdgeType GKEdgeFlip(GKEdgeType edge) {
-  switch (edge) {
-    case GKEdgeLeftMask:
-      return GKEdgeRightMask;
-    case GKEdgeRightMask:
-      return GKEdgeLeftMask;
-    case GKEdgeTopMask:
-      return GKEdgeBottomMask;
-    case GKEdgeBottomMask:
-      return GKEdgeTopMask;
-    default:
-      return edge;
-  }
-}

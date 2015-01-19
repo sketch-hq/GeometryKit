@@ -38,17 +38,6 @@ static inline CGRect GKRectNormalise(CGRect rect) {
 + (instancetype)rectWithRect:(NSRect)aRect;
 - (id)initWithRect:(NSRect)aRect;
 
-+ (instancetype)rectWithUnionOfRects:(NSArray *)gkRects;
-+ (instancetype)safeRectWithUnionOfRects:(NSArray *)gkRects;
-+ (instancetype)rectWithUnionOfGKRects:(NSArray *)gkRects;
-
-- (void)unionWith:(NSRect)rect;
-- (void)intersectWithRect:(NSRect)otherRect;
-
-- (BOOL)intersectsWithRect:(NSRect)otherRect;
-- (BOOL)containsRect:(NSRect)otherRect;
-
-- (void)normalise;
 - (void)scaleBy:(CGFloat)scale;
 
 #pragma mark - Basic Properties

@@ -3,11 +3,6 @@
 
 #import "GKRect.h"
 
-@class GKPoint, GKOffset;
-
 @interface GKRect (Point)
-- (BOOL)containsPoint:(CGPoint)point;
-- (BOOL)containsPoint:(CGPoint)point withInsetMargin:(CGFloat)rectInset;
-- (CGSize)innerOffsetOfPoint:(CGPoint)point;
-- (GKRect *)moveToPoint:(CGPoint)point withOffset:(CGSize)offset;
+
 @end

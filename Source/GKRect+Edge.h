@@ -10,12 +10,6 @@
 @property (nonatomic, readonly) CGFloat midX, midY;
 @property (nonatomic) NSPoint mid;
 
-- (void)resizeMinXTo:(CGFloat)maxX;
-- (void)resizeMaxXTo:(CGFloat)maxX;
-- (void)resizeMinYTo:(CGFloat)maxY;
-- (void)resizeMaxYTo:(CGFloat)maxY;
-
-- (CGFloat)valueForEdge:(GKEdgeType)edge;
 @end
 
 static inline CGRect GKRectResizeMinXTo(CGRect rect, CGFloat minX) {

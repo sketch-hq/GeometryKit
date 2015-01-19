@@ -1,72 +1,21 @@
 //  Created by Pieter Omvlee on 19/09/2011.
 //  Copyright (c) 2014 Bohemian Coding. All rights reserved.
 
+#import <SketchModel/MSRect.h>
 #import "GKRect.h"
 
 @implementation GKRect
 @dynamic midX, midY;
 
-+ (instancetype)rectWithRect:(NSRect)aRect
-{
++ (instancetype)rectWithRect:(NSRect)aRect {
   return [[self alloc] initWithRect:aRect];
 }
 
-- (id)initWithRect:(NSRect)aRect
-{
+- (id)initWithRect:(NSRect)aRect {
   self = [super init];
   if (self)
     _rect = aRect;
   return self;
-}
-
-+ (instancetype)rectWithUnionOfRects:(NSArray *)gkRects {
-  gkRects = [gkRects filteredArrayUsingBlock:^BOOL(id object) {
-    return [object respondsToSelector:@selector(rect)] || [object respondsToSelector:@selector(rectValue)];
-  }];
-  return [self safeRectWithUnionOfRects:gkRects];
-}
-
-+ (instancetype)safeRectWithUnionOfRects:(NSArray *)gkRects {
-  NSRect result = [self NSRectValueFromObject:[gkRects firstObject]];
-
-  for (GKRect *rect in gkRects)
-    result = NSUnionRect(result, [self NSRectValueFromObject:rect]);
-
-  return [[self class] rectWithRect:result];
-}
-
-+ (NSRect)NSRectValueFromObject:(id)object {
-  if ([object respondsToSelector:@selector(rect)])
-    return [object rect];
-  else if ([object respondsToSelector:@selector(rectValue)])
-    return [object rectValue];
-  else
-    return NSZeroRect;
-}
-
-+ (instancetype)rectWithUnionOfGKRects:(NSArray *)gkRects {
-  NSRect result = [self NSRectValueFromObject:[gkRects firstObject]];
-  
-  for (GKRect *rect in gkRects)
-    result = NSUnionRect(result, [rect rect]);
-  
-  return [[self class] rectWithRect:result];
-}
-
-- (void)unionWith:(NSRect)aRect {
-  self.rect = NSUnionRect(self.rect, aRect);
-}
-
-- (void)intersectWithRect:(NSRect)otherRect {
-  self.rect = NSIntersectionRect(self.rect, otherRect);
-}
-
-- (BOOL)intersectsWithRect:(NSRect)otherRect {
-  return NSIntersectsRect(self.rect, otherRect);
-}
-
-- (BOOL)containsRect:(NSRect)otherRect  {
-  return NSContainsRect(self.rect, otherRect);
 }
 
 @dynamic x, y, width, height;
@@ -81,26 +30,19 @@
 - (void)setWidth:(CGFloat)width   { _rect.size.width = width; }
 - (void)setHeight:(CGFloat)height { _rect.size.height = height; }
 
-- (id)copyWithZone:(NSZone *)zone
-{
-  return [[[self class] alloc] initWithRect:self.rect];
+- (id)copyWithZone:(NSZone *)zone {
+  return [[self class] rectWithRect:self.rect];
 }
 
-- (BOOL)isEqual:(GKRect *)object
-{
+- (BOOL)isEqual:(GKRect *)object {
   if ([self class] == [object class])
     return NSEqualRects(self.rect, object.rect);
   else
     return NO;
 }
 
-- (NSString *)description
-{
+- (NSString *)description {
   return NSStringFromRect(self.rect);
-}
-
-- (void)normalise {
-  self.rect = GKRectNormalise(self.rect);
 }
 
 - (void)scaleBy:(CGFloat)scale {

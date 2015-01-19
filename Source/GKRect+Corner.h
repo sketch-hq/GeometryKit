@@ -4,8 +4,6 @@
 #import "GKRect.h"
 #import "GKCorner.h"
 
-typedef CGSize (^BCCornerOffsetCallbackBlock)(GKCorner corner);
-
 static inline NSPoint GKRectPointForCorner(NSRect rect, GKCorner corner) {
   switch (corner) {
     case GKCornerTopLeft:
@@ -44,12 +42,5 @@ static inline CGSize GKRectDistanceFromCornerToMid(CGRect rect, GKCorner corner)
 }
 
 @interface GKRect (Corner)
-- (NSArray *)pointsForCorners:(NSArray *)corners;
 
-- (GKRect *)moveCorner:(GKCorner)corner toPoint:(CGPoint)point;
-- (GKRect *)resizeByPuttingCorner:(GKCorner)corner atPoint:(CGPoint)point;
-
-- (GKCorner)closestCornerForPoint:(CGPoint)point withMargin:(CGFloat)margin satisfyingMask:(NSUInteger)cornerMask;
-
-- (CGSize)distanceFromCornerToMid:(GKCorner)corner;
 @end

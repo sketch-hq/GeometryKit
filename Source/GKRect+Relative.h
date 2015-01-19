@@ -4,8 +4,5 @@
 #import "GKRect.h"
 
 @interface GKRect (Relative)
-- (GKRect *)relativeRectInsideRect:(GKRect *)outerRect;
-- (GKRect *)absoluteRectInsideRect:(GKRect *)outerRect;
 
-- (void)translateFromRect:(GKRect *)outerRect1 toRect:(GKRect *)outerRect2;
 @end
