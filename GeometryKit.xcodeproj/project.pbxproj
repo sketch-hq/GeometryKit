@@ -8,30 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		22FCC8C81756115300CAEA85 /* GeometryKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 22FCC8A61756115300CAEA85 /* GeometryKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		22FCC8CD1756115300CAEA85 /* GKCorner.h in Headers */ = {isa = PBXBuildFile; fileRef = 22FCC8AB1756115300CAEA85 /* GKCorner.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		22FCC8CE1756115300CAEA85 /* GKCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FCC8AC1756115300CAEA85 /* GKCorner.m */; };
-		22FCC8CF1756115300CAEA85 /* GKEdge.h in Headers */ = {isa = PBXBuildFile; fileRef = 22FCC8AD1756115300CAEA85 /* GKEdge.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		22FCC8D01756115300CAEA85 /* GKEdge.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FCC8AE1756115300CAEA85 /* GKEdge.m */; };
-		22FCC8D11756115300CAEA85 /* GKLine.h in Headers */ = {isa = PBXBuildFile; fileRef = 22FCC8AF1756115300CAEA85 /* GKLine.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		22FCC8D21756115300CAEA85 /* GKLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FCC8B01756115300CAEA85 /* GKLine.m */; };
-		22FCC8D31756115300CAEA85 /* GKObjectEnum.h in Headers */ = {isa = PBXBuildFile; fileRef = 22FCC8B11756115300CAEA85 /* GKObjectEnum.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		22FCC8D41756115300CAEA85 /* GKObjectEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FCC8B21756115300CAEA85 /* GKObjectEnum.m */; };
-		22FCC8D71756115300CAEA85 /* GKPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 22FCC8B51756115300CAEA85 /* GKPoint.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		22FCC8D81756115300CAEA85 /* GKPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FCC8B61756115300CAEA85 /* GKPoint.m */; };
 		22FCC8D91756115300CAEA85 /* GKRect.h in Headers */ = {isa = PBXBuildFile; fileRef = 22FCC8B71756115300CAEA85 /* GKRect.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		22FCC8DA1756115300CAEA85 /* GKRect.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FCC8B81756115300CAEA85 /* GKRect.m */; };
-		22FCC8DB1756115300CAEA85 /* GKRect+Axis.h in Headers */ = {isa = PBXBuildFile; fileRef = 22FCC8B91756115300CAEA85 /* GKRect+Axis.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		22FCC8DC1756115300CAEA85 /* GKRect+Axis.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FCC8BA1756115300CAEA85 /* GKRect+Axis.m */; };
-		22FCC8DF1756115300CAEA85 /* GKRect+Corner.h in Headers */ = {isa = PBXBuildFile; fileRef = 22FCC8BD1756115300CAEA85 /* GKRect+Corner.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		22FCC8E01756115300CAEA85 /* GKRect+Corner.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FCC8BE1756115300CAEA85 /* GKRect+Corner.m */; };
-		22FCC8E11756115300CAEA85 /* GKRect+Edge.h in Headers */ = {isa = PBXBuildFile; fileRef = 22FCC8BF1756115300CAEA85 /* GKRect+Edge.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		22FCC8E21756115300CAEA85 /* GKRect+Edge.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FCC8C01756115300CAEA85 /* GKRect+Edge.m */; };
-		22FCC8E31756115300CAEA85 /* GKRect+Expand.h in Headers */ = {isa = PBXBuildFile; fileRef = 22FCC8C11756115300CAEA85 /* GKRect+Expand.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		22FCC8E41756115300CAEA85 /* GKRect+Expand.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FCC8C21756115300CAEA85 /* GKRect+Expand.m */; };
-		22FCC8E51756115300CAEA85 /* GKRect+Point.h in Headers */ = {isa = PBXBuildFile; fileRef = 22FCC8C31756115300CAEA85 /* GKRect+Point.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		22FCC8E61756115300CAEA85 /* GKRect+Point.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FCC8C41756115300CAEA85 /* GKRect+Point.m */; };
-		22FCC8E71756115300CAEA85 /* GKRect+Relative.h in Headers */ = {isa = PBXBuildFile; fileRef = 22FCC8C51756115300CAEA85 /* GKRect+Relative.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		22FCC8E81756115300CAEA85 /* GKRect+Relative.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FCC8C61756115300CAEA85 /* GKRect+Relative.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,30 +20,8 @@
 		228CF22817562C58003E1D25 /* GeometryKitRelease.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeometryKitRelease.pch; sourceTree = "<group>"; };
 		228CF22917562C58003E1D25 /* GeometryKitShared.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeometryKitShared.pch; sourceTree = "<group>"; };
 		22FCC8A61756115300CAEA85 /* GeometryKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GeometryKit.h; path = Source/GeometryKit.h; sourceTree = SOURCE_ROOT; };
-		22FCC8AB1756115300CAEA85 /* GKCorner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKCorner.h; path = Source/GKCorner.h; sourceTree = SOURCE_ROOT; };
-		22FCC8AC1756115300CAEA85 /* GKCorner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKCorner.m; path = Source/GKCorner.m; sourceTree = SOURCE_ROOT; };
-		22FCC8AD1756115300CAEA85 /* GKEdge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKEdge.h; path = Source/GKEdge.h; sourceTree = SOURCE_ROOT; };
-		22FCC8AE1756115300CAEA85 /* GKEdge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKEdge.m; path = Source/GKEdge.m; sourceTree = SOURCE_ROOT; };
-		22FCC8AF1756115300CAEA85 /* GKLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKLine.h; path = Source/GKLine.h; sourceTree = SOURCE_ROOT; };
-		22FCC8B01756115300CAEA85 /* GKLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKLine.m; path = Source/GKLine.m; sourceTree = SOURCE_ROOT; };
-		22FCC8B11756115300CAEA85 /* GKObjectEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKObjectEnum.h; path = Source/GKObjectEnum.h; sourceTree = SOURCE_ROOT; };
-		22FCC8B21756115300CAEA85 /* GKObjectEnum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKObjectEnum.m; path = Source/GKObjectEnum.m; sourceTree = SOURCE_ROOT; };
-		22FCC8B51756115300CAEA85 /* GKPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKPoint.h; path = Source/GKPoint.h; sourceTree = SOURCE_ROOT; };
-		22FCC8B61756115300CAEA85 /* GKPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKPoint.m; path = Source/GKPoint.m; sourceTree = SOURCE_ROOT; };
 		22FCC8B71756115300CAEA85 /* GKRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKRect.h; path = Source/GKRect.h; sourceTree = SOURCE_ROOT; };
 		22FCC8B81756115300CAEA85 /* GKRect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKRect.m; path = Source/GKRect.m; sourceTree = SOURCE_ROOT; };
-		22FCC8B91756115300CAEA85 /* GKRect+Axis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GKRect+Axis.h"; path = "Source/GKRect+Axis.h"; sourceTree = SOURCE_ROOT; };
-		22FCC8BA1756115300CAEA85 /* GKRect+Axis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GKRect+Axis.m"; path = "Source/GKRect+Axis.m"; sourceTree = SOURCE_ROOT; };
-		22FCC8BD1756115300CAEA85 /* GKRect+Corner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GKRect+Corner.h"; path = "Source/GKRect+Corner.h"; sourceTree = SOURCE_ROOT; };
-		22FCC8BE1756115300CAEA85 /* GKRect+Corner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GKRect+Corner.m"; path = "Source/GKRect+Corner.m"; sourceTree = SOURCE_ROOT; };
-		22FCC8BF1756115300CAEA85 /* GKRect+Edge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GKRect+Edge.h"; path = "Source/GKRect+Edge.h"; sourceTree = SOURCE_ROOT; };
-		22FCC8C01756115300CAEA85 /* GKRect+Edge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GKRect+Edge.m"; path = "Source/GKRect+Edge.m"; sourceTree = SOURCE_ROOT; };
-		22FCC8C11756115300CAEA85 /* GKRect+Expand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GKRect+Expand.h"; path = "Source/GKRect+Expand.h"; sourceTree = SOURCE_ROOT; };
-		22FCC8C21756115300CAEA85 /* GKRect+Expand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GKRect+Expand.m"; path = "Source/GKRect+Expand.m"; sourceTree = SOURCE_ROOT; };
-		22FCC8C31756115300CAEA85 /* GKRect+Point.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GKRect+Point.h"; path = "Source/GKRect+Point.h"; sourceTree = SOURCE_ROOT; };
-		22FCC8C41756115300CAEA85 /* GKRect+Point.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GKRect+Point.m"; path = "Source/GKRect+Point.m"; sourceTree = SOURCE_ROOT; };
-		22FCC8C51756115300CAEA85 /* GKRect+Relative.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GKRect+Relative.h"; path = "Source/GKRect+Relative.h"; sourceTree = SOURCE_ROOT; };
-		22FCC8C61756115300CAEA85 /* GKRect+Relative.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GKRect+Relative.m"; path = "Source/GKRect+Relative.m"; sourceTree = SOURCE_ROOT; };
 		F5C25A8916A46702002F7A70 /* libGeometryKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGeometryKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -128,30 +84,8 @@
 			isa = PBXGroup;
 			children = (
 				22FCC8A61756115300CAEA85 /* GeometryKit.h */,
-				22FCC8AB1756115300CAEA85 /* GKCorner.h */,
-				22FCC8AC1756115300CAEA85 /* GKCorner.m */,
-				22FCC8AD1756115300CAEA85 /* GKEdge.h */,
-				22FCC8AE1756115300CAEA85 /* GKEdge.m */,
-				22FCC8AF1756115300CAEA85 /* GKLine.h */,
-				22FCC8B01756115300CAEA85 /* GKLine.m */,
-				22FCC8B11756115300CAEA85 /* GKObjectEnum.h */,
-				22FCC8B21756115300CAEA85 /* GKObjectEnum.m */,
-				22FCC8B51756115300CAEA85 /* GKPoint.h */,
-				22FCC8B61756115300CAEA85 /* GKPoint.m */,
 				22FCC8B71756115300CAEA85 /* GKRect.h */,
 				22FCC8B81756115300CAEA85 /* GKRect.m */,
-				22FCC8B91756115300CAEA85 /* GKRect+Axis.h */,
-				22FCC8BA1756115300CAEA85 /* GKRect+Axis.m */,
-				22FCC8BD1756115300CAEA85 /* GKRect+Corner.h */,
-				22FCC8BE1756115300CAEA85 /* GKRect+Corner.m */,
-				22FCC8BF1756115300CAEA85 /* GKRect+Edge.h */,
-				22FCC8C01756115300CAEA85 /* GKRect+Edge.m */,
-				22FCC8C11756115300CAEA85 /* GKRect+Expand.h */,
-				22FCC8C21756115300CAEA85 /* GKRect+Expand.m */,
-				22FCC8C31756115300CAEA85 /* GKRect+Point.h */,
-				22FCC8C41756115300CAEA85 /* GKRect+Point.m */,
-				22FCC8C51756115300CAEA85 /* GKRect+Relative.h */,
-				22FCC8C61756115300CAEA85 /* GKRect+Relative.m */,
 				F5C25A9316A46702002F7A70 /* Supporting Files */,
 			);
 			path = Source;
@@ -174,18 +108,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22FCC8C81756115300CAEA85 /* GeometryKit.h in Headers */,
-				22FCC8CD1756115300CAEA85 /* GKCorner.h in Headers */,
-				22FCC8CF1756115300CAEA85 /* GKEdge.h in Headers */,
-				22FCC8D11756115300CAEA85 /* GKLine.h in Headers */,
-				22FCC8D31756115300CAEA85 /* GKObjectEnum.h in Headers */,
-				22FCC8D71756115300CAEA85 /* GKPoint.h in Headers */,
 				22FCC8D91756115300CAEA85 /* GKRect.h in Headers */,
-				22FCC8DB1756115300CAEA85 /* GKRect+Axis.h in Headers */,
-				22FCC8DF1756115300CAEA85 /* GKRect+Corner.h in Headers */,
-				22FCC8E11756115300CAEA85 /* GKRect+Edge.h in Headers */,
-				22FCC8E31756115300CAEA85 /* GKRect+Expand.h in Headers */,
-				22FCC8E51756115300CAEA85 /* GKRect+Point.h in Headers */,
-				22FCC8E71756115300CAEA85 /* GKRect+Relative.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,18 +163,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22FCC8CE1756115300CAEA85 /* GKCorner.m in Sources */,
-				22FCC8D01756115300CAEA85 /* GKEdge.m in Sources */,
-				22FCC8D21756115300CAEA85 /* GKLine.m in Sources */,
-				22FCC8D41756115300CAEA85 /* GKObjectEnum.m in Sources */,
-				22FCC8D81756115300CAEA85 /* GKPoint.m in Sources */,
 				22FCC8DA1756115300CAEA85 /* GKRect.m in Sources */,
-				22FCC8DC1756115300CAEA85 /* GKRect+Axis.m in Sources */,
-				22FCC8E01756115300CAEA85 /* GKRect+Corner.m in Sources */,
-				22FCC8E21756115300CAEA85 /* GKRect+Edge.m in Sources */,
-				22FCC8E41756115300CAEA85 /* GKRect+Expand.m in Sources */,
-				22FCC8E61756115300CAEA85 /* GKRect+Point.m in Sources */,
-				22FCC8E81756115300CAEA85 /* GKRect+Relative.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

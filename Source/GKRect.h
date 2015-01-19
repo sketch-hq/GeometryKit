@@ -7,31 +7,6 @@
 #import <CoreGraphics/CoreGraphics.h>
 #endif
 
-static inline CGFloat GKRectValueForKey(CGRect rect, NSString *key) {
-  if ([key isEqualToString:@"minX"])
-    return CGRectGetMinX(rect);
-  else if ([key isEqualToString:@"midX"])
-    return CGRectGetMidX(rect);
-  else if ([key isEqualToString:@"maxX"])
-    return CGRectGetMaxX(rect);
-  
-  else if ([key isEqualToString:@"minY"])
-    return CGRectGetMinY(rect);
-  else if ([key isEqualToString:@"midY"])
-    return CGRectGetMidY(rect);
-  else if ([key isEqualToString:@"maxY"])
-    return CGRectGetMaxY(rect);
-  else
-    return 0;
-}
-
-static inline CGRect GKRectNormalise(CGRect rect) {
-  return CGRectMake(CGRectGetMinX(rect),
-                    CGRectGetMinY(rect),
-                    ABS(rect.size.width),
-                    ABS(rect.size.height));
-}
-
 /**
  * GKRect is a protocol that defines how rect-like instances should behave.
  * GKRect implements the protocol, but so do a few other objects which act as rects
@@ -50,11 +25,9 @@ static inline CGRect GKRectNormalise(CGRect rect) {
 + (instancetype)rectWithRect:(NSRect)aRect;
 - (id)initWithRect:(NSRect)aRect;
 
-- (void)scaleBy:(CGFloat)scale;
-
 #pragma mark - Basic Properties
 @property (nonatomic) NSRect rect;
-@property (nonatomic) CGFloat x,y, width, height, midX, midY  BC_SCRIPTING_API;
-@property (nonatomic) NSPoint origin;
+@property (nonatomic) CGFloat x,y, width, height, midX, midY, minX, minY, maxX, maxY  BC_SCRIPTING_API;
+@property (nonatomic) NSPoint origin, mid;
 @property (nonatomic) NSSize size;
 @end

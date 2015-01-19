@@ -29,6 +29,31 @@
 - (void)setWidth:(CGFloat)width   { _rect.size.width = width; }
 - (void)setHeight:(CGFloat)height { _rect.size.height = height; }
 
+- (CGFloat)minX { return NSMinX(self.rect); }
+- (CGFloat)midX { return NSMidX(self.rect); }
+- (CGFloat)maxX { return NSMaxX(self.rect); }
+
+- (CGFloat)minY { return NSMinY(self.rect); }
+- (CGFloat)midY { return NSMidY(self.rect); }
+- (CGFloat)maxY { return NSMaxY(self.rect); }
+
+- (void)setMinX:(CGFloat)minX { self.x = minX; }
+- (void)setMidX:(CGFloat)midX { self.x = midX - self.width/2; }
+- (void)setMaxX:(CGFloat)maxX { self.x = maxX - self.width; }
+
+- (void)setMinY:(CGFloat)minY { self.y = minY; }
+- (void)setMidY:(CGFloat)midY { self.y = midY - self.height/2; }
+- (void)setMaxY:(CGFloat)maxY { self.y = maxY - self.height; }
+
+- (void)setMid:(NSPoint)mid {
+  self.midX = mid.x;
+  self.midY = mid.y;
+}
+
+- (NSPoint)mid {
+  return NSMakePoint(self.midX, self.midY);
+}
+
 - (id)copyWithZone:(NSZone *)zone {
   return [[self class] rectWithRect:self.rect];
 }
@@ -42,13 +67,6 @@
 
 - (NSString *)description {
   return NSStringFromRect(self.rect);
-}
-
-- (void)scaleBy:(CGFloat)scale {
-  self.x *= scale;
-  self.y *= scale;
-  self.width *= scale;
-  self.height *= scale;
 }
 
 - (NSPoint)origin {
