@@ -4,7 +4,7 @@
 #import "GKRect.h"
 
 @implementation GKRect
-@dynamic midX, midY;
+@dynamic midX, midY, maxX, maxY, origin, size;
 
 + (instancetype)rectWithRect:(NSRect)aRect
 {
@@ -112,8 +112,6 @@
   self.width *= scale;
   self.height *= scale;
 }
-
-@dynamic origin, size;
 
 - (NSPoint)origin {
   return NSMakePoint(self.x, self.y);
