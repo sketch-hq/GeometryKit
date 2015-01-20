@@ -45,6 +45,17 @@ static inline NSPoint GKPointWithPositionForAxis(NSPoint point, GKAxisType axis,
   return point;
 }
 
+static inline CGRect GKRectWithSizeOnAxisWithAspectRatio(CGRect rect, CGFloat size, GKAxisType axis, CGFloat aspectRatio) {
+  if (axis == GKAxisVertical) {
+    rect.size.width = aspectRatio != 0 ? size * aspectRatio : rect.size.width;
+    rect.size.height = size;
+  } else {
+    rect.size.width = size;
+    rect.size.height = aspectRatio != 0 ? size / aspectRatio : rect.size.height;
+  }
+  return rect;
+}
+
 @class GKRect;
 
 @interface GKAxis : GKObjectEnum
