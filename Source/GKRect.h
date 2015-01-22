@@ -8,8 +8,8 @@
 #endif
 
 /**
- * GKRect is a protocol that defines how rect-like instances should behave.
- * GKRect implements the protocol, but so do a few other objects which act as rects
+ * BCRect is a protocol that defines how rect-like instances should behave.
+ * BCRect implements the protocol, but so do a few other objects which act as rects
  */
 
 @protocol GKRect <NSObject>
@@ -25,22 +25,9 @@
 + (instancetype)rectWithRect:(NSRect)aRect;
 - (id)initWithRect:(NSRect)aRect;
 
-+ (instancetype)rectWithUnionOfRects:(NSArray *)gkRects;
-+ (instancetype)safeRectWithUnionOfRects:(NSArray *)gkRects;
-+ (instancetype)rectWithUnionOfGKRects:(NSArray *)gkRects;
-
-- (void)unionWith:(NSRect)rect;
-- (void)intersectWithRect:(NSRect)otherRect;
-
-- (BOOL)intersectsWithRect:(NSRect)otherRect;
-- (BOOL)containsRect:(NSRect)otherRect;
-
-- (void)normalise;
-- (void)scaleBy:(CGFloat)scale;
-
 #pragma mark - Basic Properties
 @property (nonatomic) NSRect rect;
-@property (nonatomic) CGFloat x,y, width, height, midX, midY  BC_SCRIPTING_API;
-@property (nonatomic) NSPoint origin;
+@property (nonatomic) CGFloat x,y, width, height, midX, midY, minX, minY, maxX, maxY  BC_SCRIPTING_API;
+@property (nonatomic) NSPoint origin, mid;
 @property (nonatomic) NSSize size;
 @end

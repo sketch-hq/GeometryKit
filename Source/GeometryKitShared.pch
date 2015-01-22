@@ -2,5 +2,6 @@
 #ifdef __OBJC__
   #import <Cocoa/Cocoa.h>
   #import <ECLogging/ECLogging.h>
+  #import <BCFoundation/BCFoundation.h>
   #import <Chocolat/Chocolat.h>
 #endif
