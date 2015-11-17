@@ -186,14 +186,12 @@
 		};
 		F5C25A9B16A46702002F7A70 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 222D37C019ACE3240079F8BE /* GeometryKitDebug.xcconfig */;
 			buildSettings = {
 			};
 			name = Debug;
 		};
 		F5C25A9C16A46702002F7A70 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 222D37C119ACE3240079F8BE /* GeometryKitRelease.xcconfig */;
 			buildSettings = {
 			};
 			name = Release;
